@@ -19,13 +19,6 @@ export default function Home() {
 
   if (posts.length === 0) {
     return (
-      <div
-  style={{
-    maxWidth: "900px",
-    margin: "0 auto",
-    padding: "12px"
-  }}
->
       <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   }
 
