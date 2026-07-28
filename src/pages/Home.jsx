@@ -56,6 +56,7 @@ export default function Home({ selectedCategory }) {
     >
       {/* Hero */}
       <div style={{ marginBottom: "25px" }}>
+        onClick={() => navigate(`/article/${hero.id}`)}
         <img
           src={hero.image}
           alt={hero.title}
@@ -90,6 +91,7 @@ export default function Home({ selectedCategory }) {
       {latest.map((post) => (
         <div
           key={post.id}
+          onClick={() => navigate(`/article/${post.id}`)}
           style={{
             display: "flex",
             gap: "15px",
