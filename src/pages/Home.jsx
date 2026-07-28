@@ -18,14 +18,14 @@ export default function Home() {
   }, []);
 
   if (posts.length === 0) {
-    return (
-      <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   }
 
   const hero = posts[0];
   const latest = posts.slice(1);
 
   return (
+
       {/* Hero */}
       <div style={{ marginBottom: "25px" }}>
         <img
