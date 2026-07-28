@@ -2,6 +2,7 @@ import "./CategoryBar.css";
 
 const categories = [
   "All",
+  "General",
   "World",
   "India",
   "Politics",
@@ -10,7 +11,6 @@ const categories = [
   "Sports",
   "Entertainment",
 ];
-
 export default function CategoryBar({
   selectedCategory,
   onSelectCategory,
