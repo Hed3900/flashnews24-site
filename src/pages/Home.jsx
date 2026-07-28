@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Home({ selectedCategory }) {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadPosts() {
@@ -109,7 +111,20 @@ export default function Home({ selectedCategory }) {
             }}
           />
 
-          <div>
+          <div
+  key={post.id}
+  onClick={() => navigate(`/article/${post.id}`)}
+  style={{
+    display: "flex",
+    gap: "15px",
+    background: "#1b1b1b",
+    padding: "10px",
+    borderRadius: "10px",
+    marginBottom: "15px",
+    alignItems: "center",
+    cursor: "pointer",
+  }}
+>
             <h4
               style={{
                 color: "#fff",
