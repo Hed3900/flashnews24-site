@@ -182,3 +182,53 @@
     border-right-color: var(--border);
   }
 }
+.header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#111;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  border-bottom:2px solid #d60000;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.actions button{
+  font-size:24px;
+}
+<h2 style={{
+  fontSize:"30px",
+  fontWeight:"bold",
+  marginTop:"15px",
+  color:"#fff"
+}}>
+  {hero.title}
+</h2>
+
+<p style={{
+  color:"#ff3b3b",
+  fontWeight:"bold"
+}}>
+  {hero.category}
+</p>
+style={{
+  display:"flex",
+  gap:"15px",
+  background:"#1b1b1b",
+  padding:"10px",
+  borderRadius:"10px",
+  marginBottom:"15px"
+}}
+style={{
+  width:"110px",
+  height:"80px",
+  objectFit:"cover",
+  borderRadius:"8px"
+}}
