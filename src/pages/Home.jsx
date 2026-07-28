@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-export default function Home() {
+export default function Home({
+  selectedCategory
+}) {
   const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -13,25 +15,21 @@ const filteredPosts =
         post => post.category === selectedCategory
       );
 
-  useEffect(() => {
-    async function loadPosts() {
-      const snapshot = await getDocs(collection(db, "posts"));
-      const data = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setPosts(data);
-    }
-    loadPosts();
-  }, []);
+if (filteredPosts.length === 0) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px"
+      }}
+    >
+      No articles found.
+    </h2>
+  );
+}
 
-  if (posts.length === 0) {
-    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
-  }
-
-  const hero = posts[0];
-  const latest = posts.slice(1);
-
+const hero = filteredPosts[0];
+const latest = filteredPosts.slice(1);
   return (
     <div
   style={{
