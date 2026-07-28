@@ -1,0 +1,25 @@
+.category-bar{
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  padding:10px;
+  background:#181818;
+}
+
+.category-bar::-webkit-scrollbar{
+  display:none;
+}
+
+.category-bar button{
+  background:#2a2a2a;
+  color:#fff;
+  border:none;
+  border-radius:20px;
+  padding:8px 16px;
+  white-space:nowrap;
+  font-weight:600;
+}
+
+.category-bar button:hover{
+  background:#d60000;
+}
