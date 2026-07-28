@@ -1,3 +1,5 @@
+import "./CategoryBar.css";
+
 const categories = [
   "All",
   "World",
@@ -9,11 +11,20 @@ const categories = [
   "Entertainment",
 ];
 
-export default function CategoryBar() {
+export default function CategoryBar({
+  selectedCategory,
+  onSelectCategory,
+}) {
   return (
     <div className="category-bar">
       {categories.map((cat) => (
-        <button key={cat}>{cat}</button>
+        <button
+          key={cat}
+          className={selectedCategory === cat ? "active" : ""}
+          onClick={() => onSelectCategory(cat)}
+        >
+          {cat}
+        </button>
       ))}
     </div>
   );
