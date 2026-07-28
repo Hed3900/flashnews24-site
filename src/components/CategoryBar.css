@@ -23,3 +23,7 @@
 .category-bar button:hover{
   background:#d60000;
 }
+.category-bar button.active{
+  background:#d60000;
+  color:#fff;
+}
