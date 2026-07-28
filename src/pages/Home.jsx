@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
 
   if (posts.length === 0) {
-    return
+    return (
       <div
   style={{
     maxWidth: "900px",
