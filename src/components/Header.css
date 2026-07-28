@@ -1,0 +1,28 @@
+.header{
+  background:#111;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.red{
+  color:#ff2d2d;
+}
+
+.actions button{
+  background:none;
+  border:none;
+  color:white;
+  font-size:22px;
+  margin-left:12px;
+}
