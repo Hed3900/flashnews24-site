@@ -8,33 +8,69 @@ export default function Home() {
   useEffect(() => {
     async function loadPosts() {
       const snapshot = await getDocs(collection(db, "posts"));
-      const data = snapshot.docs.map((doc) => ({
+      const data = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
       }));
       setPosts(data);
     }
-
     loadPosts();
   }, []);
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>FlashNews24</h1>
+  if (posts.length === 0) {
+    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+  }
 
-      {posts.map((post) => (
-        <div key={post.id} style={{ marginBottom: "20px" }}>
-          {post.image && (
-            <img
-              src={post.image}
-              alt={post.title}
-              width="300"
-            />
-          )}
-          <h2>{post.title}</h2>
-          <p>{post.category}</p>
+  const hero = posts[0];
+  const latest = posts.slice(1);
+
+  return (
+    <div style={{ maxWidth: "900px", margin: "auto", padding: "15px" }}>
+
+      {/* Hero */}
+      <div style={{ marginBottom: "25px" }}>
+        <img
+          src={hero.image}
+          alt={hero.title}
+          style={{
+            width: "100%",
+            borderRadius: "10px"
+          }}
+        />
+
+        <h2>{hero.title}</h2>
+
+        <p style={{ color: "#888" }}>
+          {hero.category}
+        </p>
+      </div>
+
+      <h3>Latest News</h3>
+
+      {latest.map(post => (
+        <div
+          key={post.id}
+          style={{
+            display: "flex",
+            gap: "12px",
+            marginBottom: "18px",
+            borderBottom: "1px solid #333",
+            paddingBottom: "10px"
+          }}
+        >
+          <img
+            src={post.image}
+            alt={post.title}
+            width="120"
+          />
+
+          <div>
+            <h4>{post.title}</h4>
+            <small>{post.category}</small>
+          </div>
         </div>
       ))}
+
     </div>
   );
 }
