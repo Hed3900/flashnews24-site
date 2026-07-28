@@ -1,5 +1,5 @@
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import BreakingTicker from "./components/BreakingTicker";
@@ -8,13 +8,12 @@ import CategoryBar from "./components/CategoryBar";
 import Home from "./pages/Home";
 import Article from "./pages/Article";
 
-function Layout() {
+function HomeLayout() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
     <>
       <Header />
-
       <BreakingTicker />
 
       <CategoryBar
@@ -22,20 +21,18 @@ function Layout() {
         onSelectCategory={setSelectedCategory}
       />
 
-      <Home
-        selectedCategory={selectedCategory}
-      />
+      <Home selectedCategory={selectedCategory} />
     </>
   );
 }
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-        <Route path="/" element={<Layout />} />
+        <Route path="/" element={<HomeLayout />} />
         <Route path="/article/:id" element={<Article />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
