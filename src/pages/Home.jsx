@@ -18,7 +18,15 @@ export default function Home() {
   }, []);
 
   if (posts.length === 0) {
-    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+    return
+      <div
+  style={{
+    maxWidth: "900px",
+    margin: "0 auto",
+    padding: "12px"
+  }}
+>
+      <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   }
 
   const hero = posts[0];
