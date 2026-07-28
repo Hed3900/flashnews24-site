@@ -4,6 +4,14 @@ import { db } from "../firebase";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+const filteredPosts =
+  selectedCategory === "All"
+    ? posts
+    : posts.filter(
+        post => post.category === selectedCategory
+      );
 
   useEffect(() => {
     async function loadPosts() {
