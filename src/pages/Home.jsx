@@ -25,7 +25,13 @@ export default function Home() {
   const latest = posts.slice(1);
 
   return (
-    <div style={{ maxWidth: "900px", margin: "auto", padding: "15px" }}>
+    <div
+  style={{
+    maxWidth: "900px",
+    margin: "0 auto",
+    padding: "12px"
+  }}
+>
 
       {/* Hero */}
       <div style={{ marginBottom: "25px" }}>
