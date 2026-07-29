@@ -17,7 +17,21 @@ export default function Article() {
   const [loading, setLoading] = useState(true);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
+const [progress, setProgress] = useState(0);
 
+useEffect(() => {
+  const handleScroll = () => {
+    const total =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    const current = window.scrollY;
+    setProgress((current / total) * 100);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   useEffect(() => {
     async function loadPost() {
   try {
