@@ -302,7 +302,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
 
       <p style={{ color: "#bbb" }}>📧 flashnews24official@gmail.com</p>
       <p style={{ color: "#bbb" }}>🌐 www.flashnews24.site</p>
-
+<div
       style={{
   display: "flex",
   justifyContent:
@@ -312,7 +312,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   fontSize: "24px",
   flexWrap: "wrap",
 }}
-        <span>📘</span>
+     >
+<span>📘</span>
         <span>📢</span>
         <span>📷</span>
         <span>▶️</span>
