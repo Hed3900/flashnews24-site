@@ -55,7 +55,7 @@ export default function Home({ selectedCategory }) {
       }}
     >
       {/* Hero */}
-      <<div
+      <div
   onClick={() => navigate(`/article/${hero.slug}`)}
   style={{
     marginBottom: "25px",
