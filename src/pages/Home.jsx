@@ -33,28 +33,47 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, [heroPosts]);
   const filteredPosts =
-    selectedCategory === "All"
-      ? posts
-      : posts.filter(
-          (post) => post.category === selectedCategory
-        );
+  selectedCategory === "All"
+    ? posts
+    : posts.filter(
+        (post) => post.category === selectedCategory
+      );
 
-  if (filteredPosts.length === 0) {
-    return (
-      <h2
-        style={{
-          textAlign: "center",
-          padding: "40px",
-          color: "#fff",
-        }}
-      >
-        No articles found.
-      </h2>
+const sortedPosts = [...filteredPosts].reverse();
+
+const heroPosts = useMemo(
+  () => sortedPosts.slice(0, 5),
+  [sortedPosts]
+);
+
+const hero = heroPosts[heroIndex] || null;
+const latest = sortedPosts.slice(5);
+
+useEffect(() => {
+  if (heroPosts.length <= 1) return;
+
+  const timer = setInterval(() => {
+    setHeroIndex((prev) =>
+      prev === heroPosts.length - 1 ? 0 : prev + 1
     );
-  }
+  }, 5000);
 
-  const hero = filteredPosts[0];
-  const latest = filteredPosts.slice(1);
+  return () => clearInterval(timer);
+}, [heroPosts]);
+
+if (!hero) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px",
+        color: "#fff",
+      }}
+    >
+      No articles found.
+    </h2>
+  );
+}
 
   return (
     <div
