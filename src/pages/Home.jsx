@@ -201,7 +201,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   📰 Latest News
 </h3>
 
-      {{latest.slice(4).map((post) => (
+      {latest.slice(4).map((post) => (
         <div
           key={post.id}
           onClick={() => navigate(`/article/${post.slug}`)}
