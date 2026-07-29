@@ -23,25 +23,12 @@ const [heroIndex, setHeroIndex] = useState(0);
 }, []);
 
 const filteredPosts =
+const filteredPosts =
   selectedCategory === "All"
     ? posts
     : posts.filter(
         (post) => post.category === selectedCategory
       );
-
-if (filteredPosts.length === 0) {
-  return (
-    <h2
-      style={{
-        textAlign: "center",
-        padding: "40px",
-        color: "#fff",
-      }}
-    >
-      No articles found.
-    </h2>
-  );
-}
 
 const sortedPosts = [...filteredPosts].reverse();
 
@@ -50,8 +37,7 @@ const heroPosts = useMemo(
   [sortedPosts]
 );
 
-const hero = heroPosts[heroIndex] || heroPosts[0];
-
+const hero = heroPosts[heroIndex] || null;
 const latest = sortedPosts.slice(5);
 
 useEffect(() => {
@@ -66,6 +52,19 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, [heroPosts]);
 
+if (!hero) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px",
+        color: "#fff",
+      }}
+    >
+      No articles found.
+    </h2>
+  );
+}
 return (
     <div
       style={{
