@@ -18,11 +18,19 @@ export default function Article() {
   useEffect(() => {
     async function loadPost() {
   try {
+
     const q = query(
       collection(db, "posts"),
       where("slug", "==", slug)
     );
+const snapshot = await getDocs(collection(db, "posts"));
 
+console.log(
+  snapshot.docs.map(d => ({
+    id: d.id,
+    ...d.data()
+  }))
+);
     const snap = await getDocs(q);
 
     console.log("Slug =", slug);
