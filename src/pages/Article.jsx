@@ -25,12 +25,14 @@ export default function Article() {
 
 const snap = await getDocs(q);
 
-if (!snap.empty) {
-  setPost({
-    id: snap.docs[0].id,
-    ...snap.docs[0].data(),
-  });
-}
+console.log("Slug =", slug);
+console.log("Size =", snap.size);
+console.log(
+  snap.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+);
       } catch (err) {
         console.error(err);
       }
