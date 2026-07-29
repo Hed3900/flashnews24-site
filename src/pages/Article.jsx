@@ -23,18 +23,6 @@ export default function Article() {
       collection(db, "posts"),
       where("slug", "==", slug)
     );
-const snapshot = await getDocs(collection(db, "posts"));
-
-console.log(
-  snapshot.docs.map(d => ({
-    id: d.id,
-    ...d.data()
-  }))
-);
-    const snap = await getDocs(q);
-
-    console.log("Slug =", slug);
-    console.log("Size =", snap.size);
 
     if (!snap.empty) {
       setPost({
@@ -84,27 +72,31 @@ if (!post) {
       <button
         onClick={() => navigate(-1)}
         style={{
-          marginBottom: "20px",
-          background: "#d60000",
-          color: "#fff",
-          border: "none",
-          padding: "10px 16px",
-          borderRadius: "6px",
-          cursor: "pointer",
-        }}
+  background: "#d60000",
+  color: "#fff",
+  border: "none",
+  padding: "10px 18px",
+  borderRadius: "8px",
+  fontSize: "15px",
+  fontWeight: "600",
+  cursor: "pointer",
+  marginBottom: "20px",
+}}
       >
         ← Back
       </button>
 
       <img
-        src={post.image}
-        alt={post.title}
-        style={{
-          width: "100%",
-          borderRadius: "10px",
-          marginBottom: "20px",
-        }}
-      />
+  src={post.image}
+  alt={post.title}
+  style={{
+    width: "100%",
+    height: "260px",
+    objectFit: "cover",
+    borderRadius: "12px",
+    marginBottom: "20px",
+  }}
+/>
 
       <span
         style={{
