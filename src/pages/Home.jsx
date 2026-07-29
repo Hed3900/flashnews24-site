@@ -193,9 +193,10 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <h3
   style={{
     color: "#fff",
-    fontSize: "24px",
+    fontSize: window.innerWidth <= 768 ? "20px" : "24px",
     fontWeight: "700",
     margin: "30px 0 18px",
+    textAlign: "center",
   }}
 >
   🔥 Trending Now
@@ -204,7 +205,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
 <div
   style={{
     display: "flex",
-    overflowX: "auto",
+    flexDirection: window.innerWidth <= 768 ? "column" : "row",
+    overflowX: window.innerWidth <= 768 ? "hidden" : "auto",
     gap: "14px",
     paddingBottom: "10px",
     scrollbarWidth: "none",
@@ -215,7 +217,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       key={post.id}
       onClick={() => navigate(`/article/${post.slug}`)}
       style={{
-        minWidth: "240px",
+        minWidth: window.innerWidth <= 768 ? "100%" : "240px",
+        width: window.innerWidth <= 768 ? "100%" : "240px",
         background: "#1b1b1b",
         borderRadius: "14px",
         overflow: "hidden",
@@ -230,7 +233,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
           alt={post.title}
           style={{
             width: "100%",
-            height: "140px",
+            height: window.innerWidth <= 768 ? "200px" : "140px",
             objectFit: "cover",
           }}
         />
@@ -252,7 +255,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
         </div>
       </div>
 
-      <div style={{ padding: "12px" }}>
+      <div style={{ padding: "14px" }}>
         <div
           style={{
             color: "#ff3b3b",
@@ -268,8 +271,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
           style={{
             color: "#fff",
             margin: 0,
-            fontSize: "16px",
-            lineHeight: "1.4",
+            fontSize: window.innerWidth <= 768 ? "18px" : "16px",
+            lineHeight: "1.5",
           }}
         >
           {post.title}
