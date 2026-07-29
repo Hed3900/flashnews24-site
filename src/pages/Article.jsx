@@ -437,5 +437,4 @@ const nextArticle =
       </div>
     </div>
   )}
-</div>
-    }
+    
