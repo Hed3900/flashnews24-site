@@ -944,6 +944,64 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     </div>
   ))}
 </div>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  🏷️ Trending Topics
+</h3>
+
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "12px",
+    marginBottom: "35px",
+  }}
+>
+  {[
+    "Breaking News",
+    "India",
+    "World",
+    "Politics",
+    "Business",
+    "Technology",
+    "Sports",
+    "Entertainment",
+    "Health",
+    "Weather",
+    "Crime",
+    "Education",
+  ].map((tag) => (
+    <button
+      key={tag}
+      onClick={() => navigate(`/category/${tag.toLowerCase().replace(/\s+/g, "-")}`)}
+      style={{
+        background: "#1b1b1b",
+        color: "#fff",
+        border: "1px solid #d60000",
+        borderRadius: "25px",
+        padding: "10px 18px",
+        cursor: "pointer",
+        fontSize: "14px",
+        fontWeight: "600",
+        transition: "0.3s",
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.background = "#d60000";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.background = "#1b1b1b";
+      }}
+    >
+      #{tag}
+    </button>
+  ))}
+</div>
       
       <h3
   style={{
