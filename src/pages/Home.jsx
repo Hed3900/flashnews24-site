@@ -70,7 +70,7 @@ export default function Home({ selectedCategory }) {
     alt={hero.title}
     style={{
       width: "100%",
-      height: "280px",
+      height: "320px",
 borderRadius: "16px",
       objectFit: "cover",
     }}
@@ -110,7 +110,7 @@ borderRadius: "16px",
       style={{
         color: "#fff",
         marginTop: "12px",
-        fontSize: "32px",
+        fontSize: "34px",
 fontWeight: "700",
 textShadow: "0 2px 10px rgba(0,0,0,.7)",
         lineHeight: "1.3",
@@ -126,8 +126,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     color: "#fff",
     fontSize: "24px",
     fontWeight: "700",
-    margin: "30px 0 20px",
-    textAlign: "left",
+    margin: "25px 0 18px",
   }}
 >
   📰 Latest News
@@ -155,8 +154,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
             src={post.image}
             alt={post.title}
             style={{
-              width: "110px",
-              height: "80px",
+              width: "120px",
+              height: "90px",
               objectFit: "cover",
               borderRadius: "8px",
             }}
@@ -167,20 +166,25 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       color: "#fff",
       margin: "0 0 8px",
       fontSize: "17px",
+fontWeight: "700"
       lineHeight: "1.4",
     }}
   >
     {post.title}
   </h4>
 
-  <small
-    style={{
-      color: "#ff3b3b",
-      fontWeight: "600",
-    }}
-  >
-    {post.category}
-  </small>
+  <span
+  style={{
+    background: "#d60000",
+    color: "#fff",
+    padding: "3px 8px",
+    borderRadius: "12px",
+    fontSize: "11px",
+    fontWeight: "600",
+  }}
+>
+  {post.category}
+</span>
 </div>
           <div
   style={{
