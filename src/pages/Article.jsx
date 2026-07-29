@@ -337,58 +337,104 @@ const nextArticle =
 )}
     <div
   style={{
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "12px",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "15px",
     marginTop: "30px",
   }}
 >
-  {previousArticle ? (
-    <button
-      onClick={() =>
-        navigate(`/article/${previousArticle.slug}`)
-      }
+  {previousArticle && (
+    <div
+      onClick={() => navigate(`/article/${previousArticle.slug}`)}
       style={{
-        flex: 1,
-        padding: "14px",
         background: "#1b1b1b",
-        color: "#fff",
-        border: "1px solid #333",
         borderRadius: "10px",
         cursor: "pointer",
+        overflow: "hidden",
+        border: "1px solid #2d2d2d",
       }}
     >
-      ◀ Previous
-      <br />
-      <small>{previousArticle.title}</small>
-    </button>
-  ) : (
-    <div style={{ flex: 1 }} />
+      <img
+        src={previousArticle.image}
+        alt={previousArticle.title}
+        style={{
+          width: "100%",
+          height: "120px",
+          objectFit: "cover",
+        }}
+      />
+
+      <div style={{ padding: "12px" }}>
+        <div
+          style={{
+            color: "#ff3b3b",
+            fontSize: "13px",
+            marginBottom: "8px",
+            fontWeight: "700",
+          }}
+        >
+          ← Previous
+        </div>
+
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "15px",
+            fontWeight: "600",
+            lineHeight: "1.4",
+          }}
+        >
+          {previousArticle.title}
+        </div>
+      </div>
+    </div>
   )}
 
-  {nextArticle ? (
-    <button
-      onClick={() =>
-        navigate(`/article/${nextArticle.slug}`)
-      }
+  {nextArticle && (
+    <div
+      onClick={() => navigate(`/article/${nextArticle.slug}`)}
       style={{
-        flex: 1,
-        padding: "14px",
         background: "#1b1b1b",
-        color: "#fff",
-        border: "1px solid #333",
         borderRadius: "10px",
         cursor: "pointer",
+        overflow: "hidden",
+        border: "1px solid #2d2d2d",
       }}
     >
-      Next ▶
-      <br />
-      <small>{nextArticle.title}</small>
-    </button>
-  ) : (
-    <div style={{ flex: 1 }} />
+      <img
+        src={nextArticle.image}
+        alt={nextArticle.title}
+        style={{
+          width: "100%",
+          height: "120px",
+          objectFit: "cover",
+        }}
+      />
+
+      <div style={{ padding: "12px" }}>
+        <div
+          style={{
+            color: "#ff3b3b",
+            fontSize: "13px",
+            marginBottom: "8px",
+            textAlign: "right",
+            fontWeight: "700",
+          }}
+        >
+          Next →
+        </div>
+
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "15px",
+            fontWeight: "600",
+            lineHeight: "1.4",
+          }}
+        >
+          {nextArticle.title}
+        </div>
+      </div>
+    </div>
   )}
 </div>
-    </div>
-  );
-      }
