@@ -134,6 +134,40 @@ if (!post) {
   dangerouslySetInnerHTML={{ __html: post.content }}
 />
 
+<style>{`
+  p{
+    font-size:18px;
+    line-height:1.9;
+    margin:16px 0;
+    color:#ddd;
+  }
+
+  h1,h2,h3,h4{
+    color:#fff;
+    margin:22px 0 12px;
+  }
+
+  ul,ol{
+    padding-left:24px;
+    margin:16px 0;
+  }
+
+  li{
+    margin:8px 0;
+    font-size:18px;
+  }
+
+  img{
+    max-width:100%;
+    border-radius:10px;
+    margin:18px 0;
+  }
+
+  a{
+    color:#4da3ff;
+  }
+`}</style>
+
       <button
         onClick={() => {
           if (navigator.share) {
