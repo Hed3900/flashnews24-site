@@ -55,36 +55,26 @@ export default function Home({ selectedCategory }) {
       }}
     >
       {/* Hero */}
-      <div style={{ marginBottom: "25px" }}>
-        onClick={() => navigate(`/article/${hero.slug}`)}
-        <img
-          src={hero.image}
-          alt={hero.title}
-          style={{
-            width: "100%",
-            borderRadius: "10px",
-            objectFit: "cover",
-          }}
-        />
+      <<div
+  onClick={() => navigate(`/article/${hero.slug}`)}
+  style={{
+    marginBottom: "25px",
+    cursor: "pointer",
+  }}
+>
+  <img
+    src={hero.image}
+    alt={hero.title}
+    style={{
+      width: "100%",
+      borderRadius: "10px",
+      objectFit: "cover",
+    }}
+  />
 
-        <h2
-          style={{
-            color: "#fff",
-            marginTop: "15px",
-          }}
-        >
-          {hero.title}
-        </h2>
-
-        <p
-          style={{
-            color: "#ff3b3b",
-            fontWeight: "bold",
-          }}
-        >
-          {hero.category}
-        </p>
-      </div>
+  <h2>{hero.title}</h2>
+  <p>{hero.category}</p>
+</div>
 
       <h3 style={{ color: "#fff" }}>Latest News</h3>
 
