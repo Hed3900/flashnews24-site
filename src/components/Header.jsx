@@ -1,7 +1,6 @@
 import "./Header.css";
-
+const [menuOpen, setMenuOpen] = useState(false);
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="header">
       <div className="logo">
