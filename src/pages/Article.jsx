@@ -4,6 +4,7 @@ import {
   query,
   where,
   getDocs,
+  limit,
 } from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebase";
@@ -14,6 +15,7 @@ export default function Article() {
 
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
     async function loadPost() {
@@ -26,20 +28,39 @@ export default function Article() {
     const snap = await getDocs(q);
 
     if (!snap.empty) {
-      setPost({
+      const currentPost = {
         id: snap.docs[0].id,
         ...snap.docs[0].data(),
-      });
+      };
+
+      setPost(currentPost);
+
+      const relatedQuery = query(
+        collection(db, "posts"),
+        where("category", "==", currentPost.category),
+        limit(4)
+      );
+
+      const relatedSnap = await getDocs(relatedQuery);
+
+      setRelatedPosts(
+        relatedSnap.docs
+          .map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+          .filter(p => p.slug !== currentPost.slug)
+      );
     }
   } catch (err) {
     console.error(err);
   }
 
   setLoading(false);
+}
     }
     loadPost();
   }, [slug]);
-
   if (loading) {
     return (
       <div
@@ -217,17 +238,67 @@ if (!post) {
 >
   📰 Related Articles
 </h2>
+    {relatedPosts.length === 0 ? (
+  <div
+    style={{
+      background: "#1b1b1b",
+      borderRadius: "10px",
+      padding: "15px",
+      textAlign: "center",
+      color: "#bbb",
+    }}
+  >
+    No related articles.
+  </div>
+) : (
+  relatedPosts.map(item => (
     <div
-  style={{
-    background: "#1b1b1b",
-    borderRadius: "10px",
-    padding: "15px",
-    color: "#bbb",
-    textAlign: "center",
-  }}
->
-  Related articles will appear here.
-</div>
+      key={item.id}
+      onClick={() => navigate(`/article/${item.slug}`)}
+      style={{
+        display: "flex",
+        gap: "12px",
+        marginBottom: "15px",
+        cursor: "pointer",
+        background: "#1b1b1b",
+        borderRadius: "10px",
+        padding: "10px",
+      }}
+    >
+      <img
+        src={item.image}
+        alt={item.title}
+        style={{
+          width: "90px",
+          height: "70px",
+          objectFit: "cover",
+          borderRadius: "8px",
+        }}
+      />
+
+      <div>
+        <h4
+          style={{
+            color: "#fff",
+            margin: "0 0 8px",
+            fontSize: "16px",
+          }}
+        >
+          {item.title}
+        </h4>
+
+        <span
+          style={{
+            color: "#999",
+            fontSize: "13px",
+          }}
+        >
+          {item.category}
+        </span>
+      </div>
+    </div>
+  ))
+)}
     </div>
   );
       }
