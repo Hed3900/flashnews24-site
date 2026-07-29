@@ -220,7 +220,11 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
         </span>
   </div>  
 </div>  
-    <footer
+    
+          </div>  
+      ))}  
+
+<footer
   style={{
     background: "#111",
     color: "#fff",
@@ -331,9 +335,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     © {new Date().getFullYear()} FlashNews24. All Rights Reserved.
   </div>
 </footer>
-    
-          </div>  
-      ))}  
+
     </div>  
   );  
 }  
