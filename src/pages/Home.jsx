@@ -974,6 +974,75 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     </div>
   ))}
 </div>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  🗳️ Poll of the Day
+</h3>
+
+<div
+  style={{
+    background: "#1b1b1b",
+    border: "1px solid #2b2b2b",
+    borderRadius: "14px",
+    padding: "24px",
+    marginBottom: "35px",
+    boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+  }}
+>
+  <h4
+    style={{
+      color: "#fff",
+      marginBottom: "20px",
+      lineHeight: "1.5",
+    }}
+  >
+    Which news category do you read the most?
+  </h4>
+
+  {[
+    "🌍 World",
+    "🇮🇳 India",
+    "💼 Business",
+    "⚽ Sports",
+    "💻 Technology",
+    "🎬 Entertainment",
+  ].map((option) => (
+    <button
+      key={option}
+      style={{
+        width: "100%",
+        background: "#222",
+        color: "#fff",
+        border: "1px solid #333",
+        borderRadius: "10px",
+        padding: "14px",
+        marginBottom: "12px",
+        textAlign: "left",
+        cursor: "pointer",
+        fontSize: "15px",
+      }}
+    >
+      {option}
+    </button>
+  ))}
+
+  <div
+    style={{
+      marginTop: "15px",
+      color: "#999",
+      fontSize: "13px",
+      textAlign: "center",
+    }}
+  >
+    Vote feature can be connected to Firebase later.
+  </div>
+</div>
 <footer
   style={{
     background: "#111",
