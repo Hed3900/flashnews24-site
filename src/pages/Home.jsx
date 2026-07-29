@@ -70,7 +70,8 @@ export default function Home({ selectedCategory }) {
     alt={hero.title}
     style={{
       width: "100%",
-      height: "240px",
+      height: "280px",
+borderRadius: "16px",
       objectFit: "cover",
     }}
   />
@@ -109,7 +110,9 @@ export default function Home({ selectedCategory }) {
       style={{
         color: "#fff",
         marginTop: "12px",
-        fontSize: "28px",
+        fontSize: "32px",
+fontWeight: "700",
+textShadow: "0 2px 10px rgba(0,0,0,.7)",
         lineHeight: "1.3",
       }}
     >
@@ -122,12 +125,12 @@ export default function Home({ selectedCategory }) {
   style={{
     color: "#fff",
     fontSize: "24px",
-    marginBottom: "20px",
-    borderLeft: "5px solid #d60000",
-    paddingLeft: "10px",
+    fontWeight: "700",
+    margin: "30px 0 20px",
+    textAlign: "left",
   }}
 >
-  Latest News
+  📰 Latest News
 </h3>
 
       {latest.map((post) => (
@@ -135,14 +138,18 @@ export default function Home({ selectedCategory }) {
           key={post.id}
           onClick={() => navigate(`/article/${post.slug}`)}
           style={{
-            display: "flex",
-            gap: "15px",
-            background: "#1b1b1b",
-            padding: "10px",
-            borderRadius: "10px",
-            marginBottom: "15px",
-            alignItems: "center",
-          }}
+  display: "flex",
+  gap: "15px",
+  background: "#1b1b1b",
+  padding: "12px",
+  borderRadius: "14px",
+  marginBottom: "15px",
+  alignItems: "center",
+  boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+  border: "1px solid #2b2b2b",
+  cursor: "pointer",
+  transition: "0.25s",
+}}
         >
           <img
             src={post.image}
@@ -174,6 +181,15 @@ export default function Home({ selectedCategory }) {
   >
     {post.category}
   </small>
+</div>
+          <div
+  style={{
+    color: "#888",
+    fontSize: "12px",
+    marginTop: "6px",
+  }}
+>
+  📅 {post.date}
 </div>
           </div>
       ))}
