@@ -8,9 +8,9 @@ export default function Header() {
       </div>
 
       <div className="actions">
-        <button>🔍</button>
-        <button>☰</button>
-      </div>
+  <button aria-label="Search">🔍</button>
+  <button aria-label="Menu">☰</button>
+</div>
     </header>
   );
 }
