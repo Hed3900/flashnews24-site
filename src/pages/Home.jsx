@@ -21,17 +21,6 @@ const [heroIndex, setHeroIndex] = useState(0);
 
     loadPosts();
   }, []);
-useEffect(() => {
-  if (heroPosts.length <= 1) return;
-
-  const timer = setInterval(() => {
-    setHeroIndex((prev) =>
-      prev === heroPosts.length - 1 ? 0 : prev + 1
-    );
-  }, 5000);
-
-  return () => clearInterval(timer);
-}, [heroPosts]);
   const filteredPosts =
     selectedCategory === "All"
       ? posts
@@ -53,8 +42,24 @@ useEffect(() => {
     );
   }
 
-  const hero = filteredPosts[0];
-  const latest = filteredPosts.slice(1);
+const heroPosts = useMemo(
+  () => filteredPosts.slice(0, 5),
+  [filteredPosts]
+);
+
+const hero = heroPosts[heroIndex];
+const latest = filteredPosts.slice(5);
+useEffect(() => {
+  if (heroPosts.length <= 1) return;
+
+  const timer = setInterval(() => {
+    setHeroIndex(prev =>
+      prev === heroPosts.length - 1 ? 0 : prev + 1
+    );
+  }, 5000);
+
+  return () => clearInterval(timer);
+}, [heroPosts]);
 
   return (
     <div
