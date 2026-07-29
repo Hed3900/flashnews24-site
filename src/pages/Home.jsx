@@ -133,95 +133,92 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   📰 Latest News
 </h3>
 
-      {latest.slice(4).map((post) => (
-        <div
-          key={post.id}
-          onClick={() => navigate(`/article/${post.slug}`)}
-          style={{
-  display: "flex",
-  gap: "15px",
-  background: "#1b1b1b",
-  padding: "12px",
-  borderRadius: "14px",
-  marginBottom: "15px",
-  alignItems: "center",
-  boxShadow: "0 4px 12px rgba(0,0,0,.35)",
-  border: "1px solid #2b2b2b",
-  cursor: "pointer",
-  transition: "0.25s",
-}}
-        >
-          <img
-            src={post.image}
-            alt={post.title}
-            style={{
-              width: "120px",
-              height: "90px",
-              objectFit: "cover",
-              borderRadius: "8px",
-            }}
-          />
-
-           <div
-  style={{
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  }}
->
-  <h4
-    style={{
-      color: "#fff",
-      margin: "0 0 8px",
-      fontSize: "17px",
-      fontWeight: "700",
-      lineHeight: "1.4",
-    }}
-  >
-    {post.title}
-  </h4>
-
-  <span
-    style={{
-      display: "inline-block",
-      width: "fit-content",
-      background: "#d60000",
-      color: "#fff",
-      padding: "4px 10px",
-      borderRadius: "12px",
-      fontSize: "11px",
-      fontWeight: "600",
-      marginBottom: "8px",
-    }}
-  >
-    {post.category}
-  </span>
-
+{latest.map((post) => (
   <div
+    key={post.id}
+    onClick={() => navigate(`/article/${post.slug}`)}
     style={{
       display: "flex",
-      justifyContent: "space-between",
+      gap: "15px",
+      background: "#1b1b1b",
+      padding: "12px",
+      borderRadius: "14px",
+      marginBottom: "15px",
       alignItems: "center",
-      color: "#888",
-      fontSize: "12px",
+      boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      border: "1px solid #2b2b2b",
+      cursor: "pointer",
+      transition: "0.25s",
     }}
   >
-    <span>📅 {post.date || "Today"}</span>
-
-    <span
+    <img
+      src={post.image}
+      alt={post.title}
       style={{
-        color: "#d60000",
-        fontSize: "18px",
-        fontWeight: "700",
+        width: "120px",
+        height: "90px",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+
+    <div
+      style={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
-      →
-    </span>
-  </div>
-</div>
-          </div>
-      ))}
+      <h4
+        style={{
+          color: "#fff",
+          margin: "0 0 8px",
+          fontSize: "17px",
+          fontWeight: "700",
+          lineHeight: "1.4",
+        }}
+      >
+        {post.title}
+      </h4>
+
+      <span
+        style={{
+          display: "inline-block",
+          width: "fit-content",
+          background: "#d60000",
+          color: "#fff",
+          padding: "4px 10px",
+          borderRadius: "12px",
+          fontSize: "11px",
+          fontWeight: "600",
+          marginBottom: "8px",
+        }}
+      >
+        {post.category}
+      </span>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          color: "#888",
+          fontSize: "12px",
+        }}
+      >
+        <span>📅 {post.date || "Today"}</span>
+
+        <span
+          style={{
+            color: "#d60000",
+            fontSize: "18px",
+            fontWeight: "700",
+          }}
+        >
+          →
+        </span>
+      </div>
     </div>
-  );
-}
+  </div>
+))}
