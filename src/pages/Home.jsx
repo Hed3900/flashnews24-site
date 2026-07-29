@@ -454,6 +454,93 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <h3
   style={{
     color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  📈 Most Read
+</h3>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    marginBottom: "30px",
+  }}
+>
+  {filteredPosts.slice(0, 5).map((post, index) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "15px",
+        background: "#1b1b1b",
+        padding: "14px",
+        borderRadius: "14px",
+        cursor: "pointer",
+        border: "1px solid #2b2b2b",
+        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      }}
+    >
+      <div
+        style={{
+          minWidth: "42px",
+          height: "42px",
+          borderRadius: "50%",
+          background: "#d60000",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "20px",
+          fontWeight: "700",
+        }}
+      >
+        {index + 1}
+      </div>
+
+      <img
+        src={post.image}
+        alt={post.title}
+        style={{
+          width: "80px",
+          height: "60px",
+          objectFit: "cover",
+          borderRadius: "8px",
+        }}
+      />
+
+      <div style={{ flex: 1 }}>
+        <h4
+          style={{
+            color: "#fff",
+            margin: "0 0 6px",
+            fontSize: "16px",
+            lineHeight: "1.4",
+          }}
+        >
+          {post.title}
+        </h4>
+
+        <small
+          style={{
+            color: "#ff3b3b",
+            fontWeight: "600",
+          }}
+        >
+          {post.category}
+        </small>
+      </div>
+    </div>
+  ))}
+</div>
+      <h3
+  style={{
+    color: "#fff",
     fontSize: window.innerWidth <= 768 ? "20px" : "24px",
     fontWeight: "700",
     margin: "35px 0 18px",
