@@ -58,8 +58,11 @@ export default function Home({ selectedCategory }) {
       <div
   onClick={() => navigate(`/article/${hero.slug}`)}
   style={{
-    marginBottom: "25px",
+    position: "relative",
     cursor: "pointer",
+    overflow: "hidden",
+    borderRadius: "14px",
+    marginBottom: "30px",
   }}
 >
   <img
@@ -67,16 +70,65 @@ export default function Home({ selectedCategory }) {
     alt={hero.title}
     style={{
       width: "100%",
-      borderRadius: "10px",
+      height: "240px",
       objectFit: "cover",
     }}
   />
 
-  <h2>{hero.title}</h2>
-  <p>{hero.category}</p>
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      background:
+        "linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.2))",
+    }}
+  />
+
+  <div
+    style={{
+      position: "absolute",
+      bottom: "20px",
+      left: "20px",
+      right: "20px",
+    }}
+  >
+    <span
+      style={{
+        background: "#d60000",
+        color: "#fff",
+        padding: "6px 12px",
+        borderRadius: "20px",
+        fontSize: "12px",
+        fontWeight: "700",
+      }}
+    >
+      {hero.category}
+    </span>
+
+    <h2
+      style={{
+        color: "#fff",
+        marginTop: "12px",
+        fontSize: "28px",
+        lineHeight: "1.3",
+      }}
+    >
+      {hero.title}
+    </h2>
+  </div>
 </div>
 
-      <h3 style={{ color: "#fff" }}>Latest News</h3>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    marginBottom: "20px",
+    borderLeft: "5px solid #d60000",
+    paddingLeft: "10px",
+  }}
+>
+  Latest News
+</h3>
 
       {latest.map((post) => (
         <div
@@ -102,18 +154,27 @@ export default function Home({ selectedCategory }) {
               borderRadius: "8px",
             }}
           />
-            <h4
-              style={{
-                color: "#fff",
-                margin: "0 0 6px",
-              }}
-            >
-              {post.title}
-            </h4>
+            <div style={{ flex: 1 }}>
+  <h4
+    style={{
+      color: "#fff",
+      margin: "0 0 8px",
+      fontSize: "17px",
+      lineHeight: "1.4",
+    }}
+  >
+    {post.title}
+  </h4>
 
-            <small style={{ color: "#ff3b3b" }}>
-              {post.category}
-            </small>
+  <small
+    style={{
+      color: "#ff3b3b",
+      fontWeight: "600",
+    }}
+  >
+    {post.category}
+  </small>
+</div>
           </div>
       ))}
     </div>
