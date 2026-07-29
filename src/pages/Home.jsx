@@ -541,6 +541,70 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <h3
   style={{
     color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  🌍 News by Category
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "12px",
+    marginBottom: "30px",
+  }}
+>
+  {[
+    "World",
+    "India",
+    "Politics",
+    "Business",
+    "Technology",
+    "Sports",
+    "Entertainment",
+    "Health",
+  ].map((category) => (
+    <div
+      key={category}
+      onClick={() => navigate("/")}
+      style={{
+        background: "#1b1b1b",
+        border: "1px solid #2b2b2b",
+        borderRadius: "14px",
+        padding: "18px",
+        textAlign: "center",
+        cursor: "pointer",
+        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      }}
+    >
+      <div
+        style={{
+          color: "#d60000",
+          fontSize: "22px",
+          fontWeight: "700",
+          marginBottom: "8px",
+        }}
+      >
+        {category}
+      </div>
+
+      <small style={{ color: "#aaa" }}>
+        {
+          filteredPosts.filter(
+            (post) => post.category === category
+          ).length
+        }{" "}
+        Articles
+      </small>
+    </div>
+  ))}
+</div>
+      <h3
+  style={{
+    color: "#fff",
     fontSize: window.innerWidth <= 768 ? "20px" : "24px",
     fontWeight: "700",
     margin: "35px 0 18px",
