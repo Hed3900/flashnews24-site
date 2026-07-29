@@ -223,7 +223,147 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     
           </div>  
       ))}  
+<h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  💰 Gold & Silver Prices
+</h3>
 
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))",
+    gap: "18px",
+    marginBottom: "35px",
+  }}
+>
+  <div
+    style={{
+      background: "#1b1b1b",
+      border: "1px solid #FFD700",
+      borderRadius: "14px",
+      padding: "20px",
+      boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+    }}
+  >
+    <div
+      style={{
+        fontSize: "40px",
+        textAlign: "center",
+        marginBottom: "10px",
+      }}
+    >
+      🥇
+    </div>
+
+    <h4
+      style={{
+        color: "#FFD700",
+        textAlign: "center",
+        marginBottom: "15px",
+      }}
+    >
+      Gold Price
+    </h4>
+
+    <div
+      style={{
+        color: "#fff",
+        textAlign: "center",
+        fontSize: "26px",
+        fontWeight: "700",
+      }}
+    >
+      ₹98,450
+    </div>
+
+    <p
+      style={{
+        color: "#999",
+        textAlign: "center",
+        marginTop: "8px",
+      }}
+    >
+      Per 10 Grams (24K)
+    </p>
+
+    <div
+      style={{
+        color: "#4CAF50",
+        textAlign: "center",
+        fontWeight: "600",
+      }}
+    >
+      ▲ +₹350 Today
+    </div>
+  </div>
+
+  <div
+    style={{
+      background: "#1b1b1b",
+      border: "1px solid #C0C0C0",
+      borderRadius: "14px",
+      padding: "20px",
+      boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+    }}
+  >
+    <div
+      style={{
+        fontSize: "40px",
+        textAlign: "center",
+        marginBottom: "10px",
+      }}
+    >
+      🪙
+    </div>
+
+    <h4
+      style={{
+        color: "#C0C0C0",
+        textAlign: "center",
+        marginBottom: "15px",
+      }}
+    >
+      Silver Price
+    </h4>
+
+    <div
+      style={{
+        color: "#fff",
+        textAlign: "center",
+        fontSize: "26px",
+        fontWeight: "700",
+      }}
+    >
+      ₹1,12,500
+    </div>
+
+    <p
+      style={{
+        color: "#999",
+        textAlign: "center",
+        marginTop: "8px",
+      }}
+    >
+      Per Kilogram
+    </p>
+
+    <div
+      style={{
+        color: "#F44336",
+        textAlign: "center",
+        fontWeight: "600",
+      }}
+    >
+      ▼ -₹500 Today
+    </div>
+  </div>
+</div>
 <footer
   style={{
     background: "#111",
