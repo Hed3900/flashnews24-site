@@ -390,7 +390,7 @@ const nextArticle =
     </div>
   )}
 
-  {nextArticle && (
+    {nextArticle && (
     <div
       onClick={() => navigate(`/article/${nextArticle.slug}`)}
       style={{
@@ -437,4 +437,8 @@ const nextArticle =
       </div>
     </div>
   )}
-    
+</div>
+
+</div>
+);
+}
