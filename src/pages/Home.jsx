@@ -220,6 +220,118 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
         </span>
   </div>  
 </div>  
+    <footer
+  style={{
+    background: "#111",
+    color: "#fff",
+    marginTop: "50px",
+    padding: "40px 20px 20px",
+    borderTop: "3px solid #d60000",
+  }}
+>
+  <div
+    style={{
+      maxWidth: "1200px",
+      margin: "0 auto",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+      gap: "30px",
+    }}
+  >
+    {/* Logo */}
+    <div>
+      <h2
+        style={{
+          color: "#d60000",
+          marginBottom: "10px",
+        }}
+      >
+        FlashNews24
+      </h2>
+
+      <p
+        style={{
+          color: "#bbb",
+          lineHeight: "1.7",
+          fontSize: "15px",
+        }}
+      >
+        FlashNews24 brings breaking news, world updates, politics,
+        business, sports, technology and entertainment coverage
+        24 hours a day.
+      </p>
+    </div>
+
+    {/* Quick Links */}
+    <div>
+      <h3 style={{ marginBottom: "15px" }}>Quick Links</h3>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <a href="/" style={{ color: "#bbb", textDecoration: "none" }}>Home</a>
+        <a href="/about" style={{ color: "#bbb", textDecoration: "none" }}>About Us</a>
+        <a href="/contact" style={{ color: "#bbb", textDecoration: "none" }}>Contact</a>
+        <a href="/privacy" style={{ color: "#bbb", textDecoration: "none" }}>Privacy Policy</a>
+        <a href="/terms" style={{ color: "#bbb", textDecoration: "none" }}>Terms & Conditions</a>
+      </div>
+    </div>
+
+    {/* Categories */}
+    <div>
+      <h3 style={{ marginBottom: "15px" }}>Categories</h3>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <span>🌍 World</span>
+        <span>🇮🇳 India</span>
+        <span>🏛 Politics</span>
+        <span>💼 Business</span>
+        <span>💻 Technology</span>
+        <span>⚽ Sports</span>
+      </div>
+    </div>
+
+    {/* Contact */}
+    <div>
+      <h3 style={{ marginBottom: "15px" }}>Contact</h3>
+
+      <p style={{ color: "#bbb" }}>📧 flashnews24official@gmail.com</p>
+      <p style={{ color: "#bbb" }}>🌐 www.flashnews24.site</p>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "12px",
+          marginTop: "20px",
+          fontSize: "24px",
+        }}
+      >
+        <span>📘</span>
+        <span>📢</span>
+        <span>📷</span>
+        <span>▶️</span>
+        <span>❌</span>
+      </div>
+    </div>
+  </div>
+
+  <hr
+    style={{
+      border: "none",
+      borderTop: "1px solid #333",
+      margin: "30px 0 20px",
+    }}
+  />
+
+  <div
+    style={{
+      textAlign: "center",
+      color: "#888",
+      fontSize: "14px",
+    }}
+  >
+    © {new Date().getFullYear()} FlashNews24. All Rights Reserved.
+  </div>
+</footer>
+    
           </div>  
       ))}  
     </div>  
