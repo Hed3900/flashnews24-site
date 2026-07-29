@@ -120,76 +120,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     </h2>
   </div>
 </div>
-<h3
-  style={{
-    color: "#fff",
-    fontSize: "24px",
-    fontWeight: "700",
-    margin: "30px 0 18px",
-  }}
->
-  🔥 Top Stories
-</h3>
 
-<div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "14px",
-    marginBottom: "30px",
-  }}
->
-  {latest.slice(0, 4).map((post) => (
-    <div
-      key={post.id}
-      onClick={() => navigate(`/article/${post.slug}`)}
-      style={{
-        background: "#1b1b1b",
-        borderRadius: "14px",
-        overflow: "hidden",
-        cursor: "pointer",
-        border: "1px solid #2b2b2b",
-        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
-      }}
-    >
-      <img
-        src={post.image}
-        alt={post.title}
-        style={{
-          width: "100%",
-          height: "120px",
-          objectFit: "cover",
-        }}
-      />
-
-      <div style={{ padding: "10px" }}>
-        <span
-          style={{
-            background: "#d60000",
-            color: "#fff",
-            padding: "3px 8px",
-            borderRadius: "10px",
-            fontSize: "11px",
-            fontWeight: "600",
-          }}
-        >
-          {post.category}
-        </span>
-
-        <h4
-          style={{
-            color: "#fff",
-            marginTop: "10px",
-            fontSize: "15px",
-            lineHeight: "1.4",
-          }}
-        >
-          {post.title}
-        </h4>
-      </div>
-    </div>
-  ))}
-</div>
       
       <h3
   style={{
