@@ -8,39 +8,40 @@ export default function Home({ selectedCategory }) {
   const navigate = useNavigate();
 const [heroIndex, setHeroIndex] = useState(0);
   useEffect(() => {
-    async function loadPosts() {
-      const snapshot = await getDocs(collection(db, "posts"));
+  async function loadPosts() {
+    const snapshot = await getDocs(collection(db, "posts"));
 
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+    const data = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
 
-      setPosts(data);
-    }
-
-    loadPosts();
-  }, []);
-  const filteredPosts =
-    selectedCategory === "All"
-      ? posts
-      : posts.filter(
-          (post) => post.category === selectedCategory
-        );
-
-  if (filteredPosts.length === 0) {
-    return (
-      <h2
-        style={{
-          textAlign: "center",
-          padding: "40px",
-          color: "#fff",
-        }}
-      >
-        No articles found.
-      </h2>
-    );
+    setPosts(data);
   }
+
+  loadPosts();
+}, []);
+
+const filteredPosts =
+  selectedCategory === "All"
+    ? posts
+    : posts.filter(
+        (post) => post.category === selectedCategory
+      );
+
+if (filteredPosts.length === 0) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px",
+        color: "#fff",
+      }}
+    >
+      No articles found.
+    </h2>
+  );
+}
 
 const sortedPosts = [...filteredPosts].reverse();
 
@@ -49,12 +50,15 @@ const heroPosts = useMemo(
   [sortedPosts]
 );
 
+const hero = heroPosts[heroIndex] || heroPosts[0];
+
 const latest = sortedPosts.slice(5);
+
 useEffect(() => {
   if (heroPosts.length <= 1) return;
 
   const timer = setInterval(() => {
-    setHeroIndex(prev =>
+    setHeroIndex((prev) =>
       prev === heroPosts.length - 1 ? 0 : prev + 1
     );
   }, 5000);
@@ -62,7 +66,7 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, [heroPosts]);
 
-  return (
+return (
     <div
       style={{
         maxWidth: "900px",
