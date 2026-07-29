@@ -18,11 +18,12 @@ export default function Article() {
   useEffect(() => {
     async function loadPost() {
   try {
-
     const q = query(
       collection(db, "posts"),
       where("slug", "==", slug)
     );
+
+    const snap = await getDocs(q);
 
     if (!snap.empty) {
       setPost({
