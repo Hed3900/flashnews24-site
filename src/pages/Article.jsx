@@ -126,6 +126,18 @@ const nextArticle =
     ? allPosts[currentIndex + 1]
     : null;
     return (
+      <div
+  style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: `${progress}%`,
+    height: "4px",
+    background: "#d60000",
+    zIndex: 99999,
+    transition: "width .1s linear",
+  }}
+/>
   <div
     style={{
       maxWidth: "760px",
