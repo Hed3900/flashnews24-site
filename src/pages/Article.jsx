@@ -265,6 +265,7 @@ if (!post) {
   cursor: "pointer",
   transition: "0.2s",
 }}
+      >
       <img
         src={item.image}
         alt={item.title}
