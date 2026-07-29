@@ -125,7 +125,6 @@ export default function Home({ selectedCategory }) {
               {post.category}
             </small>
           </div>
-        </div>
       ))}
     </div>
   );
