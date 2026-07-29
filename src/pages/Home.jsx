@@ -160,7 +160,19 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
               borderRadius: "8px",
             }}
           />
+<div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-start",
+  }}
+>
+
            <div style={{ flex: 1 }}>
+
+
   <h4
     style={{
       color: "#fff",
@@ -174,18 +186,18 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   </h4>
 
   <span
-    style={{
-      background: "#d60000",
-      color: "#fff",
-      padding: "3px 8px",
-      borderRadius: "12px",
-      fontSize: "11px",
-      fontWeight: "600",
-    }}
-  >
-    {post.category}
-  </span>
-
+  style={{
+    marginTop: "8px",
+    background: "#d60000",
+    color: "#fff",
+    padding: "4px 10px",
+    borderRadius: "12px",
+    fontSize: "11px",
+    fontWeight: "600",
+  }}
+>
+  {post.category}
+</span>
   <div
     style={{
       color: "#888",
@@ -193,7 +205,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       marginTop: "6px",
     }}
   >
-    📅 {post.date}
+    📅 {post.date || "July 2026"}
   </div>
 </div>
           </div>
