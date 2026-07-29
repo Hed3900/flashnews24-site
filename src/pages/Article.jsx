@@ -16,6 +16,7 @@ export default function Article() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [relatedPosts, setRelatedPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
     async function loadPost() {
@@ -34,6 +35,14 @@ export default function Article() {
       };
 
       setPost(currentPost);
+      const allSnap = await getDocs(collection(db, "posts"));
+
+const all = allSnap.docs.map(doc => ({
+  id: doc.id,
+  ...doc.data(),
+}));
+
+setAllPosts(all);
 
       const relatedQuery = query(
         collection(db, "posts"),
@@ -59,28 +68,49 @@ export default function Article() {
   setLoading(false);
     }
     loadPost();
-  }, [slug]);
-  if (loading) {
-    return (
-      <div
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          padding: "40px",
-        }}
-      >
-        Loading...
-      </div>
-    );
-  }
+}, [slug]);
+
+if (loading) {
+  return (
+    <div
+      style={{
+        color: "#fff",
+        textAlign: "center",
+        padding: "40px",
+      }}
+    >
+      Loading...
+    </div>
+  );
+}
+
 if (!post) {
   return (
-    <div style={{ color: "#fff", textAlign: "center", padding: "40px" }}>
+    <div
+      style={{
+        color: "#fff",
+        textAlign: "center",
+        padding: "40px",
+      }}
+    >
       <h2 style={{ color: "yellow" }}>{slug}</h2>
       <p>Article not found.</p>
     </div>
   );
 }
+const currentIndex = allPosts.findIndex(
+  (p) => p.slug === post.slug
+);
+
+const previousArticle =
+  currentIndex > 0
+    ? allPosts[currentIndex - 1]
+    : null;
+
+const nextArticle =
+  currentIndex < allPosts.length - 1
+    ? allPosts[currentIndex + 1]
+    : null;
     return (
   <div
     style={{
@@ -305,6 +335,60 @@ if (!post) {
     </div>
   ))
 )}
+    <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "12px",
+    marginTop: "30px",
+  }}
+>
+  {previousArticle ? (
+    <button
+      onClick={() =>
+        navigate(`/article/${previousArticle.slug}`)
+      }
+      style={{
+        flex: 1,
+        padding: "14px",
+        background: "#1b1b1b",
+        color: "#fff",
+        border: "1px solid #333",
+        borderRadius: "10px",
+        cursor: "pointer",
+      }}
+    >
+      ◀ Previous
+      <br />
+      <small>{previousArticle.title}</small>
+    </button>
+  ) : (
+    <div style={{ flex: 1 }} />
+  )}
+
+  {nextArticle ? (
+    <button
+      onClick={() =>
+        navigate(`/article/${nextArticle.slug}`)
+      }
+      style={{
+        flex: 1,
+        padding: "14px",
+        background: "#1b1b1b",
+        color: "#fff",
+        border: "1px solid #333",
+        borderRadius: "10px",
+        cursor: "pointer",
+      }}
+    >
+      Next ▶
+      <br />
+      <small>{nextArticle.title}</small>
+    </button>
+  ) : (
+    <div style={{ flex: 1 }} />
+  )}
+</div>
     </div>
   );
       }
