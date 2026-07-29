@@ -169,7 +169,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
 fontWeight: "700"
       lineHeight: "1.4",
     }}
-  >
+  
     {post.title}
   </h4>
 
