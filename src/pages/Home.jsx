@@ -160,40 +160,41 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
               borderRadius: "8px",
             }}
           />
-            <div style={{ flex: 1 }}>
+           <div style={{ flex: 1 }}>
   <h4
     style={{
       color: "#fff",
       margin: "0 0 8px",
       fontSize: "17px",
-fontWeight: "700"
+      fontWeight: "700",
       lineHeight: "1.4",
     }}
-  
+  >
     {post.title}
   </h4>
 
   <span
-  style={{
-    background: "#d60000",
-    color: "#fff",
-    padding: "3px 8px",
-    borderRadius: "12px",
-    fontSize: "11px",
-    fontWeight: "600",
-  }}
->
-  {post.category}
-</span>
-</div>
-          <div
-  style={{
-    color: "#888",
-    fontSize: "12px",
-    marginTop: "6px",
-  }}
->
-  📅 {post.date}
+    style={{
+      background: "#d60000",
+      color: "#fff",
+      padding: "3px 8px",
+      borderRadius: "12px",
+      fontSize: "11px",
+      fontWeight: "600",
+    }}
+  >
+    {post.category}
+  </span>
+
+  <div
+    style={{
+      color: "#888",
+      fontSize: "12px",
+      marginTop: "6px",
+    }}
+  >
+    📅 {post.date}
+  </div>
 </div>
           </div>
       ))}
