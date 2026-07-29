@@ -301,7 +301,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       key={post.id}
       onClick={() => navigate(`/article/${post.slug}`)}
       style={{
-        display: "flex",
+        display: "block",
         gap: "14px",
         background: "#1b1b1b",
         borderRadius: "14px",
@@ -315,8 +315,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
         src={post.image}
         alt={post.title}
         style={{
-          width: "140px",
-          height: "110px",
+          width: "100%",
+height: "180px",
           objectFit: "cover",
         }}
       />
