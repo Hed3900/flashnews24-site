@@ -238,7 +238,10 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       maxWidth: "1200px",
       margin: "0 auto",
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+      gridTemplateColumns:
+  window.innerWidth <= 768
+    ? "1fr"
+    : "repeat(auto-fit,minmax(220px,1fr))",
       gap: "30px",
     }}
   >
@@ -300,14 +303,15 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <p style={{ color: "#bbb" }}>📧 flashnews24official@gmail.com</p>
       <p style={{ color: "#bbb" }}>🌐 www.flashnews24.site</p>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "12px",
-          marginTop: "20px",
-          fontSize: "24px",
-        }}
-      >
+      style={{
+  display: "flex",
+  justifyContent:
+    window.innerWidth <= 768 ? "center" : "flex-start",
+  gap: "12px",
+  marginTop: "20px",
+  fontSize: "24px",
+  flexWrap: "wrap",
+}}
         <span>📘</span>
         <span>📢</span>
         <span>📷</span>
