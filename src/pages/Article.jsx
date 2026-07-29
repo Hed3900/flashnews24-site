@@ -72,16 +72,15 @@ if (!post) {
     </div>
   );
 }
-
-  return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "15px",
-        color: "#fff",
-      }}
-    >
+    return (
+  <div
+    style={{
+      maxWidth: "760px",
+      margin: "0 auto",
+      padding: "15px",
+      color: "#fff",
+    }}
+  >
       <button
         onClick={() => navigate(-1)}
         style={{
@@ -119,11 +118,33 @@ if (!post) {
         {post.category}
       </span>
 
-      <h1>{post.title}</h1>
+      <h1
+  style={{
+    fontSize: "34px",
+    lineHeight: "1.3",
+    fontWeight: "700",
+    marginTop: "18px",
+    marginBottom: "12px",
+    color: "#fff",
+  }}
+>
+  {post.title}
+</h1>
 
-      <p style={{ color: "#999" }}>
-        {post.date || "FlashNews24"}
-      </p>
+      <div
+  style={{
+    display: "flex",
+    gap: "12px",
+    flexWrap: "wrap",
+    color: "#aaa",
+    fontSize: "14px",
+    marginBottom: "20px",
+  }}
+>
+  <span>📅 {post.date || "July 2026"}</span>
+  <span>✍️ FlashNews24</span>
+  <span>⏱️ 3 min read</span>
+</div>
 
       <div
   className="article-content"
@@ -187,6 +208,9 @@ if (!post) {
       >
         📤 Share
       </button>
+      <h2 style={{ marginTop: "40px", color: "#fff" }}>
+  Related Articles
+</h2>
     </div>
   );
       }
