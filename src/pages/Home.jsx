@@ -167,11 +167,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
   }}
 >
-
-
   <h4
     style={{
       color: "#fff",
@@ -185,26 +182,41 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   </h4>
 
   <span
-  style={{
-    marginTop: "8px",
-    background: "#d60000",
-    color: "#fff",
-    padding: "4px 10px",
-    borderRadius: "12px",
-    fontSize: "11px",
-    fontWeight: "600",
-  }}
->
-  {post.category}
-</span>
-  <div
     style={{
-      color: "#888",
-      fontSize: "12px",
-      marginTop: "6px",
+      display: "inline-block",
+      width: "fit-content",
+      background: "#d60000",
+      color: "#fff",
+      padding: "4px 10px",
+      borderRadius: "12px",
+      fontSize: "11px",
+      fontWeight: "600",
+      marginBottom: "8px",
     }}
   >
-    📅 {post.date || "July 2026"}
+    {post.category}
+  </span>
+
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      color: "#888",
+      fontSize: "12px",
+    }}
+  >
+    <span>📅 {post.date || "Today"}</span>
+
+    <span
+      style={{
+        color: "#d60000",
+        fontSize: "18px",
+        fontWeight: "700",
+      }}
+    >
+      →
+    </span>
   </div>
 </div>
           </div>
