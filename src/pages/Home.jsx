@@ -587,6 +587,93 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     color: "#fff",
     fontSize: "24px",
     fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  📱 Follow FlashNews24
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: "15px",
+    marginBottom: "35px",
+  }}
+>
+  {[
+    {
+      name: "Telegram",
+      icon: "📢",
+      color: "#229ED9",
+      url: "https://t.me/flashnews24news",
+    },
+    {
+      name: "Facebook",
+      icon: "📘",
+      color: "#1877F2",
+      url: "https://facebook.com/flashnews24offical",
+    },
+    {
+      name: "Instagram",
+      icon: "📷",
+      color: "#E1306C",
+      url: "https://instagram.com/",
+    },
+    {
+      name: "YouTube",
+      icon: "▶️",
+      color: "#FF0000",
+      url: "https://youtube.com/",
+    },
+  ].map((item) => (
+    <div
+      key={item.name}
+      onClick={() => window.open(item.url, "_blank")}
+      style={{
+        background: "#1b1b1b",
+        border: `2px solid ${item.color}`,
+        borderRadius: "14px",
+        padding: "20px",
+        textAlign: "center",
+        cursor: "pointer",
+        transition: "0.3s",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "42px",
+          marginBottom: "10px",
+        }}
+      >
+        {item.icon}
+      </div>
+
+      <h4
+        style={{
+          color: "#fff",
+          margin: "0",
+          fontSize: "18px",
+        }}
+      >
+        {item.name}
+      </h4>
+
+      <small
+        style={{
+          color: "#aaa",
+        }}
+      >
+        Follow Us
+      </small>
+    </div>
+  ))}
+</div>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
     margin: "25px 0 18px",
   }}
 >
