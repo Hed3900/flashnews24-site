@@ -1,40 +1,85 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import Search from "./pages/Search";
+import { useNavigate } from "react-router-dom";
 
-import Header from "./components/Header";
-import BreakingTicker from "./components/BreakingTicker";
-import CategoryBar from "./components/CategoryBar";
+export default function Search({ posts = [] }) {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
-import Home from "./pages/Home";
-import Article from "./pages/Article";
-
-function HomeLayout() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const filtered = posts.filter((post) =>
+    post.title?.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
-    <>
-      <Header />
-      <BreakingTicker />
+    <div
+      style={{
+        maxWidth: "800px",
+        margin: "30px auto",
+        padding: "20px",
+      }}
+    >
+      <h2 style={{ color: "#fff", textAlign: "center" }}>
+        🔍 Search News
+      </h2>
 
-      <CategoryBar
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
+      <input
+        type="text"
+        placeholder="Search news..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "14px",
+          borderRadius: "10px",
+          border: "1px solid #444",
+          background: "#1b1b1b",
+          color: "#fff",
+          fontSize: "16px",
+          marginBottom: "20px",
+        }}
       />
 
-      <Home selectedCategory={selectedCategory} />
-    </>
-  );
-}
+      {query !== "" &&
+        filtered.map((post) => (
+          <div
+            key={post.id}
+            onClick={() => navigate(`/article/${post.slug}`)}
+            style={{
+              display: "flex",
+              gap: "12px",
+              marginBottom: "16px",
+              background: "#1b1b1b",
+              borderRadius: "10px",
+              padding: "10px",
+              cursor: "pointer",
+            }}
+          >
+            <img
+              src={post.image}
+              alt={post.title}
+              style={{
+                width: "100px",
+                height: "70px",
+                objectFit: "cover",
+                borderRadius: "8px",
+              }}
+            />
 
-export default function App() {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<HomeLayout />} />
-        <Route path="/article/:slug" element={<Article />} />
-<Route path="/search" element={<Search />} />
-      </Routes>
-    </HashRouter>
+            <div>
+              <h4 style={{ color: "#fff", margin: 0 }}>
+                {post.title}
+              </h4>
+              <small style={{ color: "#999" }}>
+                {post.category}
+              </small>
+            </div>
+          </div>
+        ))}
+
+      {query !== "" && filtered.length === 0 && (
+        <p style={{ color: "#999", textAlign: "center" }}>
+          No articles found.
+        </p>
+      )}
+    </div>
   );
 }
