@@ -42,13 +42,14 @@ const [heroIndex, setHeroIndex] = useState(0);
     );
   }
 
+const sortedPosts = [...filteredPosts].reverse();
+
 const heroPosts = useMemo(
-  () => filteredPosts.slice(0, 5),
-  [filteredPosts]
+  () => sortedPosts.slice(0, 5),
+  [sortedPosts]
 );
 
-const hero = heroPosts[heroIndex];
-const latest = filteredPosts.slice(5);
+const latest = sortedPosts.slice(5);
 useEffect(() => {
   if (heroPosts.length <= 1) return;
 
@@ -178,27 +179,37 @@ useEffect(() => {
           }}
         >
           <img
-            src={post.image}
-            alt={post.title}
-            style={{
-              width: "110px",
-              height: "80px",
-              objectFit: "cover",
-              borderRadius: "8px",
-            }}
-          />
-            <h4
-              style={{
-                color: "#fff",
-                margin: "0 0 6px",
-              }}
-            >
-              {post.title}
-            </h4>
+  src={post.image}
+  alt={post.title}
+  style={{
+    width: "110px",
+    height: "80px",
+    objectFit: "cover",
+    borderRadius: "8px",
+  }}
+/>
 
-            <small style={{ color: "#ff3b3b" }}>
-              {post.category}
-            </small>
+<div style={{ flex: 1 }}>
+  <h4
+    style={{
+      color: "#fff",
+      margin: "0 0 8px",
+      fontSize: "17px",
+      lineHeight: "1.4",
+    }}
+  >
+    {post.title}
+  </h4>
+
+  <small
+    style={{
+      color: "#ff3b3b",
+      fontWeight: "600",
+    }}
+  >
+    {post.category}
+  </small>
+</div>
           </div>
       ))}
     </div>
