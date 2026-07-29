@@ -231,6 +231,105 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     margin: "35px 0 18px",
   }}
 >
+  🎥 Latest Videos
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+    gap: "18px",
+    marginBottom: "35px",
+  }}
+>
+  {filteredPosts.slice(0, 3).map((post) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        background: "#1b1b1b",
+        borderRadius: "14px",
+        overflow: "hidden",
+        cursor: "pointer",
+        border: "1px solid #2b2b2b",
+        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          height: "190px",
+        }}
+      >
+        <img
+          src={post.image}
+          alt={post.title}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "70px",
+            height: "70px",
+            borderRadius: "50%",
+            background: "rgba(214,0,0,.9)",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "28px",
+          }}
+        >
+          ▶
+        </div>
+      </div>
+
+      <div style={{ padding: "16px" }}>
+        <span
+          style={{
+            color: "#ff3b3b",
+            fontSize: "12px",
+            fontWeight: "700",
+          }}
+        >
+          VIDEO NEWS
+        </span>
+
+        <h4
+          style={{
+            color: "#fff",
+            marginTop: "10px",
+            lineHeight: "1.5",
+            fontSize: "17px",
+          }}
+        >
+          {post.title}
+        </h4>
+
+        <small style={{ color: "#999" }}>
+          ▶ Watch Full Coverage
+        </small>
+      </div>
+    </div>
+  ))}
+</div>
+      
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
   🗳️ Poll of the Day
 </h3>
 
