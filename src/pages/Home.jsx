@@ -605,6 +605,73 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <h3
   style={{
     color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  📸 Photo Gallery
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: "14px",
+    marginBottom: "35px",
+  }}
+>
+  {filteredPosts.slice(0, 6).map((post) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        position: "relative",
+        cursor: "pointer",
+        borderRadius: "14px",
+        overflow: "hidden",
+        height: "180px",
+        boxShadow: "0 6px 16px rgba(0,0,0,.4)",
+      }}
+    >
+      <img
+        src={post.image}
+        alt={post.title}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.15))",
+          display: "flex",
+          alignItems: "flex-end",
+          padding: "12px",
+        }}
+      >
+        <h4
+          style={{
+            color: "#fff",
+            margin: 0,
+            fontSize: "15px",
+            lineHeight: "1.4",
+          }}
+        >
+          {post.title}
+        </h4>
+      </div>
+    </div>
+  ))}
+</div>
+      <h3
+  style={{
+    color: "#fff",
     fontSize: window.innerWidth <= 768 ? "20px" : "24px",
     fontWeight: "700",
     margin: "35px 0 18px",
