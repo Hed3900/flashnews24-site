@@ -57,7 +57,6 @@ export default function Article() {
   }
 
   setLoading(false);
-}
     }
     loadPost();
   }, [slug]);
