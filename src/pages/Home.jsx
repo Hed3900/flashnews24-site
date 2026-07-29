@@ -952,6 +952,75 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     margin: "35px 0 18px",
   }}
 >
+  📅 Today's Highlights
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "16px",
+    marginBottom: "35px",
+  }}
+>
+  {filteredPosts.slice(0, 4).map((post, index) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        background: "#1b1b1b",
+        borderRadius: "14px",
+        border: "1px solid #2b2b2b",
+        padding: "18px",
+        cursor: "pointer",
+        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      }}
+    >
+      <div
+        style={{
+          display: "inline-block",
+          background: "#d60000",
+          color: "#fff",
+          padding: "5px 10px",
+          borderRadius: "20px",
+          fontSize: "12px",
+          fontWeight: "700",
+          marginBottom: "12px",
+        }}
+      >
+        Highlight #{index + 1}
+      </div>
+
+      <h4
+        style={{
+          color: "#fff",
+          fontSize: "18px",
+          lineHeight: "1.5",
+          margin: "0 0 10px",
+        }}
+      >
+        {post.title}
+      </h4>
+
+      <div
+        style={{
+          color: "#999",
+          fontSize: "13px",
+        }}
+      >
+        🏷️ {post.category} &nbsp; • &nbsp; 📅 {post.date || "Today"}
+      </div>
+    </div>
+  ))}
+</div>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
   🏷️ Trending Topics
 </h3>
 
