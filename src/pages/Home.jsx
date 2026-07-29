@@ -286,6 +286,84 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     margin: "35px 0 18px",
   }}
 >
+  ⭐ Editor's Picks
+</h3>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: "16px",
+  }}
+>
+  {filteredPosts.slice(0, 3).map((post) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        display: "block",
+        gap: "14px",
+        background: "#1b1b1b",
+        borderRadius: "14px",
+        overflow: "hidden",
+        cursor: "pointer",
+        border: "1px solid #2b2b2b",
+        boxShadow: "0 4px 12px rgba(0,0,0,.35)",
+      }}
+    >
+      <img
+        src={post.image}
+        alt={post.title}
+        style={{
+          width: "100%",
+height: "180px",
+          objectFit: "cover",
+        }}
+      />
+
+      <div
+        style={{
+          padding: "12px",
+          flex: 1,
+        }}
+      >
+        <span
+          style={{
+            display: "inline-block",
+            background: "#d60000",
+            color: "#fff",
+            padding: "4px 10px",
+            borderRadius: "20px",
+            fontSize: "11px",
+            fontWeight: "700",
+            marginBottom: "10px",
+          }}
+        >
+          EDITOR'S PICK
+        </span>
+
+        <h4
+          style={{
+            color: "#fff",
+            margin: "0 0 10px",
+            fontSize: "17px",
+            lineHeight: "1.4",
+          }}
+        >
+          {post.title}
+        </h4>
+
+        <small
+          style={{
+            color: "#999",
+          }}
+        >
+          📅 {post.date || "Today"}
+        </small>
+      </div>
+    </div>
+  ))}
+</div>
 
       <h3
   style={{
