@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebase";
 
 export default function Article() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   const [post, setPost] = useState(null);
@@ -13,15 +18,19 @@ export default function Article() {
   useEffect(() => {
     async function loadPost() {
       try {
-        const ref = doc(db, "posts", id);
-        const snap = await getDoc(ref);
+        const q = query(
+  collection(db, "posts"),
+  where("slug", "==", slug)
+);
 
-        if (snap.exists()) {
-          setPost({
-            id: snap.id,
-            ...snap.data(),
-          });
-        }
+const snap = await getDocs(q);
+
+if (!snap.empty) {
+  setPost({
+    id: snap.docs[0].id,
+    ...snap.docs[0].data(),
+  });
+}
       } catch (err) {
         console.error(err);
       }
@@ -30,7 +39,7 @@ export default function Article() {
     }
 
     loadPost();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return (
