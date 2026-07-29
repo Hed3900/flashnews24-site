@@ -678,7 +678,77 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
   }}
 >
   📰 Latest News
+        
 </h3>
+      <h3
+  style={{
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+    margin: "35px 0 18px",
+  }}
+>
+  ⚡ Live Updates
+</h3>
+
+<div
+  style={{
+    background: "#1b1b1b",
+    border: "1px solid #2b2b2b",
+    borderRadius: "14px",
+    overflow: "hidden",
+    marginBottom: "35px",
+  }}
+>
+  {filteredPosts.slice(0, 5).map((post, index) => (
+    <div
+      key={post.id}
+      onClick={() => navigate(`/article/${post.slug}`)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "15px",
+        padding: "16px",
+        borderBottom:
+          index !== filteredPosts.slice(0, 5).length - 1
+            ? "1px solid #2b2b2b"
+            : "none",
+        cursor: "pointer",
+      }}
+    >
+      <span
+        style={{
+          background: "#d60000",
+          color: "#fff",
+          fontSize: "11px",
+          fontWeight: "700",
+          padding: "5px 10px",
+          borderRadius: "20px",
+          whiteSpace: "nowrap",
+        }}
+      >
+        🔴 LIVE
+      </span>
+
+      <div style={{ flex: 1 }}>
+        <div
+          style={{
+            color: "#fff",
+            fontSize: "16px",
+            fontWeight: "600",
+            marginBottom: "5px",
+          }}
+        >
+          {post.title}
+        </div>
+
+        <small style={{ color: "#999" }}>
+          {post.category} • {post.date || "Just now"}
+        </small>
+      </div>
+    </div>
+  ))}
+</div>
 <footer
   style={{
     background: "#111",
