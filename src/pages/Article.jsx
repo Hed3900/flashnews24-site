@@ -56,7 +56,7 @@ console.log(
       </div>
     );
   }
-
+<h2 style={{ color: "yellow" }}>{slug}</h2>
   if (!post) {
     return (
       <div
