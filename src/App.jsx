@@ -31,7 +31,7 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} />
-        <Route path="/article/:id" element={<Article />} />
+        <Route path="/article/:slug" element={<Article />} />
       </Routes>
     </HashRouter>
   );
