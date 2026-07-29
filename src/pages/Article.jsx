@@ -17,29 +17,29 @@ export default function Article() {
 
   useEffect(() => {
     async function loadPost() {
-      try {
-        const q = query(
-  collection(db, "posts"),
-  where("slug", "==", slug)
-);
+  try {
+    const q = query(
+      collection(db, "posts"),
+      where("slug", "==", slug)
+    );
 
-const snap = await getDocs(q);
+    const snap = await getDocs(q);
 
-console.log("Slug =", slug);
-console.log("Size =", snap.size);
-console.log(
-  snap.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data(),
-  }))
-);
-      } catch (err) {
-        console.error(err);
-      }
+    console.log("Slug =", slug);
+    console.log("Size =", snap.size);
 
-      setLoading(false);
+    if (!snap.empty) {
+      setPost({
+        id: snap.docs[0].id,
+        ...snap.docs[0].data(),
+      });
     }
+  } catch (err) {
+    console.error(err);
+  }
 
+  setLoading(false);
+    }
     loadPost();
   }, [slug]);
 
@@ -56,20 +56,14 @@ console.log(
       </div>
     );
   }
-<h2 style={{ color: "yellow" }}>{slug}</h2>
-  if (!post) {
-    return (
-      <div
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          padding: "40px",
-        }}
-      >
-        Article not found.
-      </div>
-    );
-  }
+if (!post) {
+  return (
+    <div style={{ color: "#fff", textAlign: "center", padding: "40px" }}>
+      <h2 style={{ color: "yellow" }}>{slug}</h2>
+      <p>Article not found.</p>
+    </div>
+  );
+}
 
   return (
     <div
