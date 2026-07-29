@@ -108,12 +108,14 @@ if (!post) {
 
       <span
         style={{
-          display: "inline-block",
-          background: "#d60000",
-          padding: "5px 12px",
-          borderRadius: "20px",
-          marginBottom: "15px",
-        }}
+  display: "inline-block",
+  background: "#d60000",
+  color: "#fff",
+  padding: "6px 14px",
+  borderRadius: "20px",
+  fontSize: "13px",
+  fontWeight: "600",
+}}
       >
         {post.category}
       </span>
@@ -197,20 +199,42 @@ if (!post) {
           }
         }}
         style={{
-          marginTop: "30px",
-          background: "#d60000",
-          color: "#fff",
-          border: "none",
-          padding: "12px 18px",
-          borderRadius: "6px",
-          cursor: "pointer",
-        }}
+  width: "100%",
+  marginTop: "30px",
+  background: "#d60000",
+  color: "#fff",
+  border: "none",
+  padding: "14px",
+  borderRadius: "8px",
+  fontSize: "17px",
+  fontWeight: "600",
+  cursor: "pointer",
+}}
       >
         📤 Share
       </button>
-      <h2 style={{ marginTop: "40px", color: "#fff" }}>
-  Related Articles
+      <h2
+  style={{
+    marginTop: "40px",
+    marginBottom: "20px",
+    color: "#fff",
+    fontSize: "24px",
+    fontWeight: "700",
+  }}
+>
+  📰 Related Articles
 </h2>
+    <div
+  style={{
+    background: "#1b1b1b",
+    borderRadius: "10px",
+    padding: "15px",
+    color: "#bbb",
+    textAlign: "center",
+  }}
+>
+  Related articles will appear here.
+</div>
     </div>
   );
       }
