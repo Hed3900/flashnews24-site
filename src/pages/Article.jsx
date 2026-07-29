@@ -126,48 +126,45 @@ if (!post) {
       </p>
 
       <div
+  className="article-content"
   style={{
-    lineHeight: "1.8",
+    textAlign: "left",
     fontSize: "18px",
-    marginTop: "20px",
+    lineHeight: "1.9",
+    color: "#ddd",
   }}
-  dangerouslySetInnerHTML={{ __html: post.content }}
+  dangerouslySetInnerHTML={{
+    __html: (post.content || "").replace(/&nbsp;/g, " "),
+  }}
 />
+      <style>{`
+.article-content p{
+  margin:16px 0;
+}
 
-<style>{`
-  p{
-    font-size:18px;
-    line-height:1.9;
-    margin:16px 0;
-    color:#ddd;
-  }
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4{
+  margin:24px 0 12px;
+  color:#fff;
+}
 
-  h1,h2,h3,h4{
-    color:#fff;
-    margin:22px 0 12px;
-  }
+.article-content ul,
+.article-content ol{
+  padding-left:24px;
+}
 
-  ul,ol{
-    padding-left:24px;
-    margin:16px 0;
-  }
+.article-content li{
+  margin:8px 0;
+}
 
-  li{
-    margin:8px 0;
-    font-size:18px;
-  }
-
-  img{
-    max-width:100%;
-    border-radius:10px;
-    margin:18px 0;
-  }
-
-  a{
-    color:#4da3ff;
-  }
+.article-content img{
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+}
 `}</style>
-
       <button
         onClick={() => {
           if (navigator.share) {
