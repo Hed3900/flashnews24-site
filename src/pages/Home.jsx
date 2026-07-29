@@ -160,7 +160,8 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
               borderRadius: "8px",
             }}
           />
-<div
+
+           <div
   style={{
     flex: 1,
     display: "flex",
@@ -169,8 +170,6 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     alignItems: "flex-start",
   }}
 >
-
-           <div style={{ flex: 1 }}>
 
 
   <h4
