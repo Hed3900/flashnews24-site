@@ -255,45 +255,51 @@ if (!post) {
       key={item.id}
       onClick={() => navigate(`/article/${item.slug}`)}
       style={{
-        display: "flex",
-        gap: "12px",
-        marginBottom: "15px",
-        cursor: "pointer",
-        background: "#1b1b1b",
-        borderRadius: "10px",
-        padding: "10px",
-      }}
-    >
+  display: "flex",
+  gap: "12px",
+  alignItems: "center",
+  background: "#1b1b1b",
+  borderRadius: "12px",
+  padding: "12px",
+  marginBottom: "12px",
+  cursor: "pointer",
+  transition: "0.2s",
+}}
       <img
         src={item.image}
         alt={item.title}
         style={{
-          width: "90px",
-          height: "70px",
-          objectFit: "cover",
-          borderRadius: "8px",
-        }}
+  width: "100px",
+  height: "80px",
+  objectFit: "cover",
+  borderRadius: "8px",
+  flexShrink: 0,
+}}
       />
 
       <div>
         <h4
-          style={{
-            color: "#fff",
-            margin: "0 0 8px",
-            fontSize: "16px",
-          }}
-        >
-          {item.title}
-        </h4>
+  style={{
+    margin: "0 0 6px",
+    color: "#fff",
+    fontSize: "16px",
+    lineHeight: "1.4",
+  }}
+>
+  {item.title}
+</h4>
 
         <span
-          style={{
-            color: "#999",
-            fontSize: "13px",
-          }}
-        >
-          {item.category}
-        </span>
+  style={{
+    background: "#d60000",
+    color: "#fff",
+    padding: "3px 8px",
+    borderRadius: "12px",
+    fontSize: "12px",
+  }}
+>
+  {item.category}
+</span>
       </div>
     </div>
   ))
