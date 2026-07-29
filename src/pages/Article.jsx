@@ -126,14 +126,13 @@ if (!post) {
       </p>
 
       <div
-        style={{
-          lineHeight: "1.8",
-          fontSize: "18px",
-          marginTop: "20px",
-        }}
-      >
-        {post.content}
-      </div>
+  style={{
+    lineHeight: "1.8",
+    fontSize: "18px",
+    marginTop: "20px",
+  }}
+  dangerouslySetInnerHTML={{ __html: post.content }}
+/>
 
       <button
         onClick={() => {
