@@ -5,7 +5,7 @@ import Search from "./pages/Search";
 import Header from "./components/Header";
 import BreakingTicker from "./components/BreakingTicker";
 import CategoryBar from "./components/CategoryBar";
-
+import BackToTop from "./components/BackToTop";
 import Home from "./pages/Home";
 import Article from "./pages/Article";
 
@@ -35,6 +35,7 @@ export default function App() {
         <Route path="/article/:slug" element={<Article />} />
 <Route path="/search" element={<Search />} />
       </Routes>
+      <BackToTop />
     </HashRouter>
   );
 }
