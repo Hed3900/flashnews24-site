@@ -123,7 +123,18 @@ export default function Header() {
 >
   ⚽ Sports
 </div>
-      )}
-    </header>
-  );
+<div
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    setMenuOpen(false);
+  }}
+>
+  📞 Contact
+</div>
+
+)}
+
+</header>
+);
 }
+Root cause: </div> (menu popup container) miss ayindi. Anduke JSX
