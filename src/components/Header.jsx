@@ -75,18 +75,54 @@ export default function Header() {
           }}
         >
           <div
-            style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
-            onClick={() => navigate("/")}
-          >
-            🏠 Home
-          </div>
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    navigate("/");
+    setMenuOpen(false);
+  }}
+>
+  🏠 Home
+</div>
 
-          <div style={{ padding: "14px", color: "#fff" }}>🌍 World</div>
-          <div style={{ padding: "14px", color: "#fff" }}>🇮🇳 India</div>
-          <div style={{ padding: "14px", color: "#fff" }}>💼 Business</div>
-          <div style={{ padding: "14px", color: "#fff" }}>⚽ Sports</div>
-          <div style={{ padding: "14px", color: "#fff" }}>📞 Contact</div>
-        </div>
+          <div
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    navigate("/category/world");
+    setMenuOpen(false);
+  }}
+>
+  🌍 World
+</div>
+
+<div
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    navigate("/category/india");
+    setMenuOpen(false);
+  }}
+>
+  🇮🇳 India
+</div>
+
+<div
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    navigate("/category/business");
+    setMenuOpen(false);
+  }}
+>
+  💼 Business
+</div>
+
+<div
+  style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
+  onClick={() => {
+    navigate("/category/sports");
+    setMenuOpen(false);
+  }}
+>
+  ⚽ Sports
+</div>
       )}
     </header>
   );
