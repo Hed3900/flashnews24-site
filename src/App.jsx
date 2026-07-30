@@ -27,7 +27,6 @@ function HomeLayout() {
     </>
   );
 }
-
 export default function App() {
   return (
     <HashRouter>
