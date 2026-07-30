@@ -51,7 +51,7 @@ const token = await getToken(messaging, {
       console.error(err);
     }
   }
-  }
+  
   enableNotifications();
 }, []);
   return (
