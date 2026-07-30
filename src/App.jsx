@@ -55,9 +55,9 @@ await addDoc(collection(db, "fcmTokens"), {
   createdAt: new Date().toISOString(),
 });
 
-alert("Notifications enabled successfully!");
+console.log("Notifications enabled successfully");
   } catch (err) {
-    alert("FCM Error: " + err.message);
+    console.error("FCM Error:", err);
     console.error(err);
   }
   }
