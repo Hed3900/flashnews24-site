@@ -11,7 +11,8 @@ import BackToTop from "./components/BackToTop";
 import Home from "./pages/Home";
 import Article from "./pages/Article";
 import Category from "./pages/Category";
-
+import { addDoc, collection } from "firebase/firestore";
+import { db, messaging } from "./firebase";
 function HomeLayout() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -49,8 +50,13 @@ export default function App() {
       vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
       serviceWorkerRegistration: registration,
     });
+await addDoc(collection(db, "fcmTokens"), {
+  token,
+  platform: "web",
+  createdAt: new Date().toISOString(),
+});
 
-    alert("Token:\n" + token);
+alert("Notifications enabled successfully!");
   } catch (err) {
     alert("FCM Error: " + err.message);
     console.error(err);
