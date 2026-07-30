@@ -137,7 +137,7 @@ const nextArticle =
     zIndex: 99999,
     transition: "width .1s linear",
   }}
-/>
+>
   <div
     style={{
       maxWidth: "760px",
