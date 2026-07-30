@@ -36,17 +36,14 @@ export default function App() {
 
   alert("Function started");
 
-  const permission = await Notification.requestPermission();
+  const registration = await navigator.serviceWorker.register(
+  "/flashnews24-site/firebase-messaging-sw.js"
+);
 
-  alert("Permission: " + permission);
-
-  if (permission === "granted") {
-    try {
-      alert("Getting token...");
-
-      const token = await getToken(messaging, {
-        vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
-      });
+const token = await getToken(messaging, {
+  vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
+  serviceWorkerRegistration: registration,
+});
 
       alert("Token:\n" + token);
     } catch (err) {
