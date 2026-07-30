@@ -131,10 +131,9 @@ export default function Header() {
 >
   📞 Contact
 </div>
-
+</div>
 )}
 
 </header>
 );
 }
-Root cause: </div> (menu popup container) miss ayindi. Anduke JSX
