@@ -42,7 +42,21 @@ export default function App() {
           vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
         });
 
-        console.log("FCM Token:", token);
+        document.body.insertAdjacentHTML(
+  "beforeend",
+  `<div style="
+    position:fixed;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    background:#111;
+    color:#fff;
+    padding:10px;
+    font-size:12px;
+    z-index:99999;
+    word-break:break-all;
+  ">${token}</div>`
+);
       } catch (err) {
         console.error("FCM Error:", err);
       }
