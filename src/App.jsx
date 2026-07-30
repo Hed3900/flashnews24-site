@@ -1,5 +1,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getToken } from "firebase/messaging";
+import { messaging } from "./firebase";
 import Search from "./pages/Search";
 
 import Header from "./components/Header";
@@ -28,6 +30,27 @@ function HomeLayout() {
   );
 }
 export default function App() {
+  useEffect(() => {
+  async function enableNotifications() {
+    if (!("Notification" in window)) return;
+
+    const permission = await Notification.requestPermission();
+
+    if (permission === "granted") {
+      try {
+        const token = await getToken(messaging, {
+          vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
+        });
+
+        console.log("FCM Token:", token);
+      } catch (err) {
+        console.error("FCM Error:", err);
+      }
+    }
+  }
+
+  enableNotifications();
+}, []);
   return (
     <HashRouter>
       <Routes>
