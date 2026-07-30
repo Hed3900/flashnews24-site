@@ -45,7 +45,7 @@ export default function App() {
       alert("Getting token...");
 
       const token = await getToken(messaging, {
-        vapidKey: "NEE_VAPID_KEY",
+        vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
       });
 
       alert("Token:\n" + token);
