@@ -32,23 +32,29 @@ function HomeLayout() {
 export default function App() {
   useEffect(() => {
   async function enableNotifications() {
-    if (!("Notification" in window)) return;
+  if (!("Notification" in window)) return;
 
-    const permission = await Notification.requestPermission();
+  alert("Function started");
 
-    if (permission === "granted") {
-      try {
-        const token = await getToken(messaging, {
-          vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
-        });
+  const permission = await Notification.requestPermission();
 
-        alert("Notification setup started");
-      } catch (err) {
-        console.error("FCM Error:", err);
-      }
+  alert("Permission: " + permission);
+
+  if (permission === "granted") {
+    try {
+      alert("Getting token...");
+
+      const token = await getToken(messaging, {
+        vapidKey: "NEE_VAPID_KEY",
+      });
+
+      alert("Token:\n" + token);
+    } catch (err) {
+      alert("FCM Error: " + err.message);
+      console.error(err);
     }
   }
-
+  }
   enableNotifications();
 }, []);
   return (
