@@ -125,6 +125,13 @@ const nextArticle =
   currentIndex < allPosts.length - 1
     ? allPosts[currentIndex + 1]
     : null;
+  const wordCount =
+  post.content?.replace(/<[^>]+>/g, "").split(/\s+/).length || 0;
+
+const readingTime = Math.max(
+  1,
+  Math.ceil(wordCount / 200)
+);
     return (
   <div
     style={{
@@ -209,11 +216,14 @@ const nextArticle =
     color: "#aaa",
     fontSize: "14px",
     marginBottom: "20px",
+    alignItems: "center",
   }}
 >
   <span>📅 {post.date || "July 2026"}</span>
+
   <span>✍️ FlashNews24</span>
-  <span>⏱️ 3 min read</span>
+
+  <span>🕒 {readingTime} min read</span>
 </div>
 
       <div
