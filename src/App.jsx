@@ -34,26 +34,28 @@ export default function App() {
   async function enableNotifications() {
   if (!("Notification" in window)) return;
 
-  alert("Function started");
+  const permission = await Notification.requestPermission();
 
-  const registration = await navigator.serviceWorker.register(
-  "/flashnews24-site/firebase-messaging-sw.js"
-);
-
-const token = await getToken(messaging, {
-  vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
-  serviceWorkerRegistration: registration,
-});
-
-      alert("Token:\n" + token);
-    } catch (err) {
-      alert("FCM Error: " + err.message);
-      console.error(err);
-    }
+  if (permission !== "granted") {
+    return;
   }
-  
-  enableNotifications();
-}, []);
+
+  try {
+    const registration = await navigator.serviceWorker.register(
+      "/flashnews24-site/firebase-messaging-sw.js"
+    );
+
+    const token = await getToken(messaging, {
+      vapidKey: "BNOWKXK21uLfihl_fg5BfRWkRH99kHGkZa5L-n7Oyhwj8b4FGrNRSBiV-ttSQQ3KMTbTIdLT2WU7gfvJ5O74jH0",
+      serviceWorkerRegistration: registration,
+    });
+
+    alert("Token:\n" + token);
+  } catch (err) {
+    alert("FCM Error: " + err.message);
+    console.error(err);
+  }
+  }
   return (
     <HashRouter>
       <Routes>
