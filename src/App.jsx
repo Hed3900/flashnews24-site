@@ -8,6 +8,7 @@ import CategoryBar from "./components/CategoryBar";
 import BackToTop from "./components/BackToTop";
 import Home from "./pages/Home";
 import Article from "./pages/Article";
+import Category from "./pages/Category";
 
 function HomeLayout() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -33,7 +34,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />} />
         <Route path="/article/:slug" element={<Article />} />
-<Route path="/search" element={<Search />} />
+        <Route path="/category/:category" element={<Category />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <BackToTop />
     </HashRouter>
