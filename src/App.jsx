@@ -56,6 +56,8 @@ export default function App() {
     console.error(err);
   }
   }
+    enableNotifications();
+}, []);
   return (
     <HashRouter>
       <Routes>
