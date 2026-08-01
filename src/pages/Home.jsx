@@ -155,7 +155,7 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       <img
   src={post.image}
   alt={post.title}
-  loading="lazy",
+  loading="lazy"
         style={{
           width: "100%",
           height: "120px",
