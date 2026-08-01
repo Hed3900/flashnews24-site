@@ -11,29 +11,29 @@ export default function ImportBlogger() {
 
     try {
       const posts = await getPosts();
-const fullPost = await getPost(item.id);
-console.log(fullPost.labels);
+
       let imported = 0;
 
       for (const item of posts) {
-        const fullPost = await getPost(item.id);
+  const fullPost = await getPost(item.id);
 
-        let image = fullPost.images?.[0]?.url || "";
+  console.log(fullPost.labels);
 
-if (!image) {
-  const match = fullPost.content.match(/<img[^>]+src="([^"]+)"/i);
-  image = match ? match[1] : "";
-}
-        await addDoc(collection(db, "posts"), {
-          bloggerPostId: fullPost.id,
-          bloggerUrl: fullPost.url || "",
-          title: fullPost.title,
-          content: fullPost.content,
-          image,
-          category:
-            fullPost.labels?.[0] || "General",
-          keywords:
-            fullPost.labels?.join(", ") || "",
+  let image = fullPost.images?.[0]?.url || "";
+
+  if (!image) {
+    const match = fullPost.content.match(/<img[^>]+src="([^"]+)"/i);
+    image = match ? match[1] : "";
+  }
+
+  await addDoc(collection(db, "posts"), {
+    bloggerPostId: fullPost.id,
+    bloggerUrl: fullPost.url || "",
+    title: fullPost.title,
+    content: fullPost.content,
+    image,
+    category: fullPost.labels?.[0] || "General",
+    keywords: fullPost.labels?.join(", ") || "",
           description: "",
           slug:
             fullPost.url?.split("/").pop() || "",
