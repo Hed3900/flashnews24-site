@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Layout from "../components/Layout";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getPosts, getPost } from "../services/bloggerService";
@@ -59,7 +58,7 @@ export default function ImportBlogger() {
   }
 
   return (
-    <Layout>
+    <div>
       <div
         style={{
           padding: 40,
@@ -86,6 +85,6 @@ export default function ImportBlogger() {
             : "Import All Blogger Posts"}
         </button>
       </div>
-    </Layout>
+    </div>
   );
 }
