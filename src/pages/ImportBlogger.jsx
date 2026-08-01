@@ -11,7 +11,8 @@ export default function ImportBlogger() {
 
     try {
       const posts = await getPosts();
-
+const fullPost = await getPost(item.id);
+console.log(fullPost.labels);
       let imported = 0;
 
       for (const item of posts) {
