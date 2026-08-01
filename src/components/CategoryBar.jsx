@@ -12,8 +12,6 @@ const categories = [
   "Science"
 ];
 
-const category =
-  fullPost.labels?.find(label => categories.includes(label)) || "General";
 export default function CategoryBar({
   selectedCategory,
   onSelectCategory,
