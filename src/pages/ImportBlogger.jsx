@@ -17,15 +17,12 @@ export default function ImportBlogger() {
       for (const item of posts) {
         const fullPost = await getPost(item.id);
 
-        let image = "";
+        let image = fullPost.images?.[0]?.url || "";
 
-if (fullPost.images?.length) {
-  image = fullPost.images[0].url;
-} else {
+if (!image) {
   const match = fullPost.content.match(/<img[^>]+src="([^"]+)"/i);
   image = match ? match[1] : "";
 }
-
         await addDoc(collection(db, "posts"), {
           bloggerPostId: fullPost.id,
           bloggerUrl: fullPost.url || "",
