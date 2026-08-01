@@ -40,26 +40,21 @@ const categories = [
 const category =
   fullPost.labels?.find(label => categories.includes(label)) || "General";
   await addDoc(collection(db, "posts"), {
-    bloggerPostId: fullPost.id,
-    bloggerUrl: fullPost.url || "",
-    title: fullPost.title,
-    content: fullPost.content,
-    image,
-    category: fullPost.labels?.[0] || "General",
-    keywords: fullPost.labels?.join(", ") || "",
-          description: "",
-          slug:
-            fullPost.url?.split("/").pop() || "",
-          status: "published",
-          authorName: "News DESK",
-          authorEmail: "",
-          createdAt:
-            fullPost.published ||
-            new Date().toISOString(),
-          publishedAt:
-            fullPost.published ||
-            new Date().toISOString(),
-        });
+  bloggerPostId: fullPost.id,
+  bloggerUrl: fullPost.url || "",
+  title: fullPost.title,
+  content: fullPost.content,
+  image,
+  category: category,   // ✅ change this line
+  keywords: fullPost.labels?.join(", ") || "",
+  description: "",
+  slug: fullPost.url?.split("/").pop() || "",
+  status: "published",
+  authorName: "News DESK",
+  authorEmail: "",
+  createdAt: fullPost.published || new Date().toISOString(),
+  publishedAt: fullPost.published || new Date().toISOString(),
+});
 
         imported++;
       }
