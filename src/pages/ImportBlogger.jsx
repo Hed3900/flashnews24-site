@@ -25,7 +25,20 @@ export default function ImportBlogger() {
     const match = fullPost.content.match(/<img[^>]+src="([^"]+)"/i);
     image = match ? match[1] : "";
   }
+const categories = [
+  "General",
+  "World",
+  "India",
+  "Politics",
+  "Business",
+  "Technology",
+  "Sports",
+  "Entertainment",
+  "Science",
+];
 
+const category =
+  fullPost.labels?.find(label => categories.includes(label)) || "General";
   await addDoc(collection(db, "posts"), {
     bloggerPostId: fullPost.id,
     bloggerUrl: fullPost.url || "",
