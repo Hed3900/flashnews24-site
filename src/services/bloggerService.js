@@ -1,6 +1,6 @@
 const API_KEY = "AIzaSyBX5-m0a9hbjZr3Ni31SayRN2tifGOMTNw";
 
-const BLOG_ID = "2160464596365043771";
+const BLOG_ID = "4592212551421716018";
 
 export async function getPosts() {
   const res = await fetch(
