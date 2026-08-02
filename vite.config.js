@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/flashnews24-site/'
+  base: '/flashnews24-site/',
 })
