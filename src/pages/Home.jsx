@@ -1332,13 +1332,35 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
     <div>
       <h3 style={{ marginBottom: "15px" }}>Quick Links</h3>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <a href="/" style={{ color: "#bbb", textDecoration: "none" }}>Home</a>
-        <a href="/https://www.flashnews24.site/p/about-us.html" style={{ color: "#bbb", textDecoration: "none" }}>About Us</a>
-        <a href="/https://www.flashnews24.site/p/contact-us.html" style={{ color: "#bbb", textDecoration: "none" }}>Contact</a>
-        <a href="/https://www.flashnews24.site/p/privacy-policy.html" style={{ color: "#bbb", textDecoration: "none" }}>Privacy Policy</a>
-        <a href="/https://www.flashnews24.site/p/terms-and-conditions.html" style={{ color: "#bbb", textDecoration: "none" }}>Terms & Conditions</a>
-      </div>
+<div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+  <a
+    href="https://www.flashnews24.site/p/about-us.html"
+    style={{ color: "#bbb", textDecoration: "none" }}
+  >
+    About Us
+  </a>
+
+  <a
+    href="https://www.flashnews24.site/p/contact-us.html"
+    style={{ color: "#bbb", textDecoration: "none" }}
+  >
+    Contact
+  </a>
+
+  <a
+    href="https://www.flashnews24.site/p/privacy-policy.html"
+    style={{ color: "#bbb", textDecoration: "none" }}
+  >
+    Privacy Policy
+  </a>
+
+  <a
+    href="https://www.flashnews24.site/p/terms-and-conditions.html"
+    style={{ color: "#bbb", textDecoration: "none" }}
+  >
+    Terms & Conditions
+  </a>
+</div>
     </div>
 
     {/* Categories */}
