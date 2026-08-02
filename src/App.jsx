@@ -2,7 +2,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getToken } from "firebase/messaging";
 import Search from "./pages/Search";
-
+import DeletePosts from "./pages/DeletePosts";
 import Header from "./components/Header";
 import BreakingTicker from "./components/BreakingTicker";
 import CategoryBar from "./components/CategoryBar";
@@ -71,6 +71,10 @@ console.log("Notifications enabled successfully");
         <Route path="/article/:slug" element={<Article />} />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/search" element={<Search />} />
+        <Route
+  path="/delete-posts"
+  element={<DeletePosts />}
+/>
         <Route
   path="/import-blogger"
   element={<ImportBlogger />}
