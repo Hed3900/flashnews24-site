@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getToken } from "firebase/messaging";
 import Search from "./pages/Search";
@@ -79,7 +79,7 @@ console.log("Notifications enabled successfully");
   }
   
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} />
         <Route path="/article/:slug" element={<Article />} />
@@ -87,6 +87,6 @@ console.log("Notifications enabled successfully");
         <Route path="/search" element={<Search />} />
       </Routes>
       <BackToTop />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
