@@ -1334,10 +1334,10 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
 
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         <a href="/" style={{ color: "#bbb", textDecoration: "none" }}>Home</a>
-        <a href="/about" style={{ color: "#bbb", textDecoration: "none" }}>About Us</a>
-        <a href="/contact" style={{ color: "#bbb", textDecoration: "none" }}>Contact</a>
-        <a href="/privacy" style={{ color: "#bbb", textDecoration: "none" }}>Privacy Policy</a>
-        <a href="/terms" style={{ color: "#bbb", textDecoration: "none" }}>Terms & Conditions</a>
+        <a href="/about-us.html" style={{ color: "#bbb", textDecoration: "none" }}>About Us</a>
+        <a href="/contact-us.html" style={{ color: "#bbb", textDecoration: "none" }}>Contact</a>
+        <a href="/privacy-policy.html" style={{ color: "#bbb", textDecoration: "none" }}>Privacy Policy</a>
+        <a href="/terms-and-conditions.html" style={{ color: "#bbb", textDecoration: "none" }}>Terms & Conditions</a>
       </div>
     </div>
 
