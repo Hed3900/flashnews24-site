@@ -46,13 +46,21 @@
 
   <link rel="icon" href="/favicon.svg" />
   <script>
-(function () {
-  const redirect = sessionStorage.redirect;
-  if (redirect) {
-    sessionStorage.removeItem("redirect");
-    history.replaceState(null, null, redirect);
+(function(l) {
+  if (l.search[1] === 'p') {
+    var decoded = l.search
+      .slice(3)
+      .replace(/~and~/g, '&');
+
+    window.history.replaceState(
+      null,
+      null,
+      l.pathname.slice(0, -1) +
+        decoded +
+        l.hash
+    );
   }
-})();
+}(window.location));
   </script>
 </head>
 
