@@ -11,8 +11,10 @@ import Article from "./pages/Article";
 import Category from "./pages/Category";
 import { addDoc, collection } from "firebase/firestore";
 import { db, messaging } from "./firebase";
+import SplashScreen from "./SplashScreen";
 
 function HomeLayout() {
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
@@ -30,6 +32,19 @@ function HomeLayout() {
   );
 }
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SplashScreen />;
+  }
   useEffect(() => {
   async function enableNotifications() {
   if (!("Notification" in window)) return;
