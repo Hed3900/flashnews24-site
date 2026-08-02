@@ -2,7 +2,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getToken } from "firebase/messaging";
 import Search from "./pages/Search";
-import DeletePosts from "./pages/DeletePosts";
 import Header from "./components/Header";
 import BreakingTicker from "./components/BreakingTicker";
 import CategoryBar from "./components/CategoryBar";
