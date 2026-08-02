@@ -8,20 +8,28 @@ export default function Home({ selectedCategory }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function loadPosts() {
+  async function loadPosts() {
+    try {
+      alert("Home Loaded");
+
       const snapshot = await getDocs(collection(db, "posts"));
+
+      alert("Posts: " + snapshot.size);
 
       const data = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-console.log("Firestore Posts:", data);
-console.log("Total:", data.length);
-      setPosts(data);
-    }
 
-    loadPosts();
-  }, []);
+      setPosts(data);
+    } catch (err) {
+      alert("Firestore Error: " + err.message);
+      console.error(err);
+    }
+  }
+
+  loadPosts();
+}, []);
 
   const filteredPosts =
     selectedCategory === "All"
