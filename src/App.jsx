@@ -71,7 +71,7 @@ console.log("Notifications enabled successfully");
         <Route path="/article/:slug" element={<Article />} />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/search" element={<Search />} />
-        
+      </Routes>
       <BackToTop />
     </HashRouter>
   );
