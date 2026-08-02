@@ -1,6 +1,7 @@
 import "./CategoryBar.css";
 
 const categories = [
+  "All",
   "General",
   "World",
   "India",
