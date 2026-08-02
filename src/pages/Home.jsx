@@ -706,13 +706,13 @@ textShadow: "0 2px 10px rgba(0,0,0,.7)",
       name: "Instagram",
       icon: "📷",
       color: "#E1306C",
-      url: "https://instagram.com/",
+      url: "https://www.instagram.com/flashnews24_live?igsh=ODFzdnBpdjVreHhq",
     },
     {
       name: "YouTube",
       icon: "▶️",
       color: "#FF0000",
-      url: "https://youtube.com/",
+      url: "https://youtube.com/@flashnews24yt-b1t?si=ylJeLHK7GL3rL0P_",
     },
   ].map((item) => (
     <div
