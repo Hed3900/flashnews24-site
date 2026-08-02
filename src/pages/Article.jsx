@@ -234,13 +234,29 @@ const readingTime = Math.max(
     textAlign: "left",
     fontSize: "18px",
     lineHeight: "1.9",
-    color: "#111827",
+    color: "#ffffff",
   }}
   dangerouslySetInnerHTML={{
     __html: (post.content || "").replace(/&nbsp;/g, " "),
   }}
 />
       <style>{`
+      .article-content{
+  color:#fff !important;
+}
+
+.article-content p,
+.article-content li,
+.article-content span{
+  color:#fff !important;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4{
+  color:#fff !important;
+}
 .article-content p{
   margin:16px 0;
 }
