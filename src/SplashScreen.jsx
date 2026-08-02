@@ -48,6 +48,8 @@ export default function SplashScreen() {
         Breaking News • World • India
         <br />
         Politics • Technology • Sports
+        Version 1.0.0
+© FlashNews24
       </p>
 
       <div
