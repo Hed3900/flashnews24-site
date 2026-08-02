@@ -202,7 +202,7 @@ const readingTime = Math.max(
     fontWeight: "700",
     marginTop: "18px",
     marginBottom: "12px",
-    color: "#fff",
+    color: "#FF3B3B",   // Red
   }}
 >
   {post.title}
