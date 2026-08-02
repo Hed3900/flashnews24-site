@@ -18,7 +18,8 @@ useEffect(() => {
         id: doc.id,
         ...doc.data(),
       }));
-
+console.log(data[0]);
+alert(JSON.stringify(data[0], null, 2));
       setPosts(data);
     } catch (err) {
       console.error(err);
