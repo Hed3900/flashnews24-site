@@ -135,11 +135,13 @@ const readingTime = Math.max(
     return (
   <div
     style={{
-      maxWidth: "760px",
-      margin: "0 auto",
-      padding: "15px",
-      color: "#fff",
-    }}
+  maxWidth: "760px",
+  margin: "0 auto",
+  padding: "15px",
+  color: "#fff",
+  background: "#121212",
+  minHeight: "100vh",
+}}
   >
     <div
       style={{
@@ -232,7 +234,7 @@ const readingTime = Math.max(
     textAlign: "left",
     fontSize: "18px",
     lineHeight: "1.9",
-    color: "#ddd",
+    color: "#111827",
   }}
   dangerouslySetInnerHTML={{
     __html: (post.content || "").replace(/&nbsp;/g, " "),
