@@ -15,7 +15,8 @@ export default function Home({ selectedCategory }) {
         id: doc.id,
         ...doc.data(),
       }));
-
+console.log("Firestore Posts:", data);
+console.log("Total:", data.length);
       setPosts(data);
     }
 
