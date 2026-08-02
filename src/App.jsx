@@ -12,7 +12,7 @@ import Article from "./pages/Article";
 import Category from "./pages/Category";
 import { addDoc, collection } from "firebase/firestore";
 import { db, messaging } from "./firebase";
-import ImportBlogger from "./pages/ImportBlogger";
+
 function HomeLayout() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -71,15 +71,7 @@ console.log("Notifications enabled successfully");
         <Route path="/article/:slug" element={<Article />} />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/search" element={<Search />} />
-        <Route
-  path="/delete-posts"
-  element={<DeletePosts />}
-/>
-        <Route
-  path="/import-blogger"
-  element={<ImportBlogger />}
-/>
-      </Routes>
+        
       <BackToTop />
     </HashRouter>
   );
