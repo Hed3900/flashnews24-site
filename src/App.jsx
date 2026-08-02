@@ -14,7 +14,6 @@ import { db, messaging } from "./firebase";
 import SplashScreen from "./SplashScreen";
 
 function HomeLayout() {
-  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
@@ -42,9 +41,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <SplashScreen />;
-  }
   useEffect(() => {
   async function enableNotifications() {
   if (!("Notification" in window)) return;
@@ -78,6 +74,10 @@ console.log("Notifications enabled successfully");
   }
     enableNotifications();
 }, []);
+  if (loading) {
+    return <SplashScreen />;
+  }
+  
   return (
     <HashRouter>
       <Routes>
