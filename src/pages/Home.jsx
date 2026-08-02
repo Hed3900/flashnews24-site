@@ -29,7 +29,7 @@ useEffect(() => {
 
   loadPosts();
 }, []);
-alert("Selected: " + selectedCategory + " | Posts: " + posts.length);
+
   const filteredPosts =
   selectedCategory === "All"
     ? posts
@@ -39,15 +39,11 @@ alert("Selected: " + selectedCategory + " | Posts: " + posts.length);
       });
 
   if (loading) {
-  return <h2 style={{ textAlign: "center", color: "#fff" }}>
-    Loading articles...
-  </h2>;
+  return <h2>Loading articles...</h2>;
 }
 
-if (filteredPosts.length === 0) {
-  return <h2 style={{ textAlign: "center", color: "#fff" }}>
-    No articles found.
-  </h2>;
+if (!posts.length) {
+  return <h2>No articles found.</h2>;
 }
 
   const hero = filteredPosts[0];
