@@ -39,11 +39,15 @@ useEffect(() => {
       });
 
   if (loading) {
-  return <h2>Loading articles...</h2>;
+  return <h2 style={{ color: "#fff", textAlign: "center" }}>Loading articles...</h2>;
 }
 
-if (!posts.length) {
-  return <h2>No articles found.</h2>;
+if (posts.length === 0) {
+  return <h2 style={{ color: "#fff", textAlign: "center" }}>No articles found.</h2>;
+}
+
+if (filteredPosts.length === 0) {
+  return <h2 style={{ color: "#fff", textAlign: "center" }}>No articles found in this category.</h2>;
 }
 
   const hero = filteredPosts[0];
