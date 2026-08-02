@@ -39,19 +39,33 @@ alert("Selected: " + selectedCategory + " | Posts: " + posts.length);
         return category === selectedCategory.trim().toLowerCase();
       });
 
-  if (filteredPosts.length === 0) {
-    return (
-      <h2
-        style={{
-          textAlign: "center",
-          padding: "40px",
-          color: "#fff",
-        }}
-      >
-        No articles found.
-      </h2>
-    );
-  }
+  if (posts.length === 0) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px",
+        color: "#fff",
+      }}
+    >
+      Loading articles...
+    </h2>
+  );
+}
+
+if (filteredPosts.length === 0) {
+  return (
+    <h2
+      style={{
+        textAlign: "center",
+        padding: "40px",
+        color: "#fff",
+      }}
+    >
+      No articles found.
+    </h2>
+  );
+}
 
   const hero = filteredPosts[0];
   const latest = filteredPosts.slice(1);
