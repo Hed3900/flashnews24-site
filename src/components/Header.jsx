@@ -126,7 +126,7 @@ export default function Header() {
 <div
   style={{ padding: "14px", color: "#fff", cursor: "pointer" }}
   onClick={() => {
-    setMenuOpen(false);
+    window.location.href = "https://www.flashnews24.site/p/contact-us.html";
   }}
 >
   📞 Contact
