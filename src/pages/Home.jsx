@@ -30,13 +30,14 @@ export default function Home({ selectedCategory }) {
 
   loadPosts();
 }, []);
-
+alert("Selected: " + selectedCategory + " | Posts: " + posts.length);
   const filteredPosts =
-    selectedCategory === "All"
-      ? posts
-      : posts.filter(
-          (post) => post.category === selectedCategory
-        );
+  selectedCategory === "All"
+    ? posts
+    : posts.filter((post) => {
+        const category = (post.category || "General").trim().toLowerCase();
+        return category === selectedCategory.trim().toLowerCase();
+      });
 
   if (filteredPosts.length === 0) {
     return (
