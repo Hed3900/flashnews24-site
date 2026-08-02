@@ -7,24 +7,23 @@ export default function Home({ selectedCategory }) {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
   async function loadPosts() {
     try {
-      alert("Home Loaded");
-
       const snapshot = await getDocs(collection(db, "posts"));
 
-      alert("Posts: " + snapshot.size);
-
-      const data = snapshot.docs.map((doc) => ({
+      const data = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
       }));
 
       setPosts(data);
     } catch (err) {
-      alert("Firestore Error: " + err.message);
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -39,32 +38,16 @@ alert("Selected: " + selectedCategory + " | Posts: " + posts.length);
         return category === selectedCategory.trim().toLowerCase();
       });
 
-  if (posts.length === 0) {
-  return (
-    <h2
-      style={{
-        textAlign: "center",
-        padding: "40px",
-        color: "#fff",
-      }}
-    >
-      Loading articles...
-    </h2>
-  );
+  if (loading) {
+  return <h2 style={{ textAlign: "center", color: "#fff" }}>
+    Loading articles...
+  </h2>;
 }
 
 if (filteredPosts.length === 0) {
-  return (
-    <h2
-      style={{
-        textAlign: "center",
-        padding: "40px",
-        color: "#fff",
-      }}
-    >
-      No articles found.
-    </h2>
-  );
+  return <h2 style={{ textAlign: "center", color: "#fff" }}>
+    No articles found.
+  </h2>;
 }
 
   const hero = filteredPosts[0];
