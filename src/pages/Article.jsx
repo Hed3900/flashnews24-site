@@ -11,6 +11,7 @@ import { db } from "../firebase";
 
 export default function Article() {
   const { slug } = useParams();
+  console.log("URL slug =", slug);
   const navigate = useNavigate();
 
   const [post, setPost] = useState(null);
@@ -48,7 +49,7 @@ console.log("Documents:", snap.size);
         id: snap.docs[0].id,
         ...snap.docs[0].data(),
       };
-
+console.log("Firestore slug =", currentPost.slug);
       setPost(currentPost);
       const allSnap = await getDocs(collection(db, "posts"));
 
