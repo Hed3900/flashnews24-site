@@ -39,10 +39,13 @@ useEffect(() => {
       collection(db, "posts"),
       where("slug", "==", slug)
     );
+console.log("URL slug:", slug);
 
     const snap = await getDocs(q);
-
+console.log("Documents:", snap.size);
     if (!snap.empty) {
+      console.log("Firestore slug:", snap.docs[0].data().slug);
+    }
       const currentPost = {
         id: snap.docs[0].id,
         ...snap.docs[0].data(),
