@@ -156,22 +156,37 @@ const readingTime = Math.max(
         zIndex: 99999,
       }}
     />
-      <button
-        onClick={() => navigate(-1)}
-        style={{
-  background: "#d60000",
-  color: "#fff",
-  border: "none",
-  padding: "10px 18px",
-  borderRadius: "8px",
-  fontSize: "15px",
-  fontWeight: "600",
-  cursor: "pointer",
-  marginBottom: "20px",
-}}
-      >
-        ← Back
-      </button>
+       <button
+    onClick={() => navigate(-1)}
+    style={{
+      background: "#d60000",
+      color: "#fff",
+      border: "none",
+      padding: "10px 18px",
+      borderRadius: "8px",
+      fontSize: "15px",
+      fontWeight: "600",
+      cursor: "pointer",
+    }}
+  >
+    ← Back
+  </button>
+
+  <button
+    onClick={() => navigate("/")}
+    style={{
+      background: "#222",
+      color: "#fff",
+      border: "1px solid #444",
+      padding: "10px 18px",
+      borderRadius: "8px",
+      fontSize: "15px",
+      fontWeight: "600",
+      cursor: "pointer",
+    }}
+  >
+    🏠 Home
+  </button>
 
       <img
   src={post.image}
