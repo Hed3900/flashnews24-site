@@ -32,6 +32,14 @@ function HomeLayout() {
 }
 export default function App() {
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+  const redirect = sessionStorage.getItem("redirect");
+
+  if (redirect) {
+    sessionStorage.removeItem("redirect");
+    window.history.replaceState(null, "", redirect);
+  }
+}, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -77,7 +85,7 @@ console.log("Notifications enabled successfully");
   if (loading) {
     return <SplashScreen />;
   }
-  
+  console.log(sessionStorage.getItem("redirect"));
   return (
     <BrowserRouter>
       <Routes>
