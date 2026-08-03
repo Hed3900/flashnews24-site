@@ -64,7 +64,11 @@ if (filteredPosts.length === 0) {
     >
       {/* Hero */}
       <div
-  onClick={() => navigate(`/article/${hero.slug}`)}
+  onClick={() => {
+  console.log(hero);
+  console.log(hero.slug);
+  navigate(`/article/${hero.slug}`);
+}}
   style={{
     position: "relative",
     cursor: "pointer",
