@@ -46,6 +46,9 @@ export async function onRequest(context) {
   }
 
   const response = await next();
+
+console.log("Status:", response.status);
+console.log("Content-Type:", response.headers.get("content-type"));
 console.log("Worker executed:", request.url);
   return new HTMLRewriter()
     .on(
