@@ -1,112 +1,89 @@
 export async function onRequest(context) {
   const { request, next } = context;
 
-  const ua = request.headers.get("user-agent") || "";
-
-  //const isBot =
-  //  /facebookexternalhit|Facebot|WhatsApp|Twitterbot|TelegramBot|LinkedInBot|Slackbot/i.test(
-   //   ua
-  //  );
-
- // if (!isBot) {
- //   return next();
- // }
-
   const url = new URL(request.url);
-  const path = url.pathname;
 
-  if (!path.startsWith("/article/")) {
+  if (!url.pathname.startsWith("/article/")) {
     return next();
   }
 
-  const slug = decodeURIComponent(path.split("/article/")[1]);
+  const slug = decodeURIComponent(
+    url.pathname.split("/article/")[1]
+  ).replace(".html", "");
 
   const api =
-  "https://firestore.googleapis.com/v1/projects/flashnews24-5bfd6/databases/(default)/documents/posts";
+    "https://firestore.googleapis.com/v1/projects/flashnews24-5bfd6/databases/(default)/documents/posts";
+
   const res = await fetch(api);
   const json = await res.json();
 
   let post = null;
 
-  for (const doc of json.documents || []) {
+  for (const doc of (json.documents || [])) {
     const f = doc.fields;
 
-    const firestoreSlug = f.slug?.stringValue || "";
+    const firestoreSlug =
+      (f.slug?.stringValue || "").replace(".html", "");
 
-if (
-  firestoreSlug === slug ||
-  firestoreSlug.replace(".html", "") === slug.replace(".html", "")
-) {
-  post = {
-    title: f.title?.stringValue || "",
-    image: f.image?.stringValue || "",
-    content: f.content?.stringValue || "",
-  };
-  break;
-}
+    if (firestoreSlug === slug) {
+      post = {
+        title: f.title?.stringValue || "FlashNews24",
+        description: (f.content?.stringValue || "")
+          .replace(/<[^>]*>/g, "")
+          .replace(/\s+/g, " ")
+          .slice(0, 180),
+        image: f.image?.stringValue || "https://news.flashnews24.site/logo.png",
+      };
+      break;
+    }
   }
 
   if (!post) {
     return next();
   }
 
-  const response = await next();
-
-if (response.status === 404) {
   return new Response(
-    `NEXT RETURNED 404
-Status: ${response.status}
-URL: ${request.url}`,
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>${escape(post.title)}</title>
+
+<meta name="description" content="${escape(post.description)}">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="${escape(post.title)}">
+<meta property="og:description" content="${escape(post.description)}">
+<meta property="og:image" content="${post.image}">
+<meta property="og:url" content="${request.url}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escape(post.title)}">
+<meta name="twitter:description" content="${escape(post.description)}">
+<meta name="twitter:image" content="${post.image}">
+
+<script>
+window.location.replace("${request.url}");
+</script>
+
+</head>
+<body>
+Redirecting...
+</body>
+</html>`,
     {
-      status: 500,
       headers: {
-        "Content-Type": "text/plain",
+        "Content-Type": "text/html; charset=UTF-8",
       },
     }
   );
 }
 
-console.log("Status:", response.status);
-console.log("Content-Type:", response.headers.get("content-type"));
-console.log("Worker executed:", request.url);
-
-return new HTMLRewriter()
-  .on(
-    "head",
-    new HeadRewriter(
-      post.title,
-      post.content,
-      post.image,
-      request.url
-    )
-  )
-  .transform(response);
-}
-
-class HeadRewriter {
-  constructor(title, content, image, url) {
-    this.title = title;
-    this.content = content.replace(/<[^>]*>/g, "").slice(0, 180);
-    this.image = image;
-    this.url = url;
-  }
-
-  element(element) {
-    element.append(`
-<meta name="test-worker" content="worker-ok">
-
-<meta property="og:type" content="article">
-<meta property="og:title" content="${this.title}">
-<meta property="og:description" content="${this.content}">
-<meta property="og:image" content="${this.image}">
-<meta property="og:url" content="${this.url}">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${this.title}">
-<meta name="twitter:description" content="${this.content}">
-<meta name="twitter:image" content="${this.image}">
-`, {
-  html: true,
-});
-  }
+function escape(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
