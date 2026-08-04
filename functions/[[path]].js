@@ -52,20 +52,35 @@ if (
 
   const response = await next();
 
+if (response.status === 404) {
+  return new Response(
+    `NEXT RETURNED 404
+Status: ${response.status}
+URL: ${request.url}`,
+    {
+      status: 500,
+      headers: {
+        "Content-Type": "text/plain",
+      },
+    }
+  );
+}
+
 console.log("Status:", response.status);
 console.log("Content-Type:", response.headers.get("content-type"));
 console.log("Worker executed:", request.url);
-  return new HTMLRewriter()
-    .on(
-      "head",
-      new HeadRewriter(
-        post.title,
-        post.content,
-        post.image,
-        request.url
-      )
+
+return new HTMLRewriter()
+  .on(
+    "head",
+    new HeadRewriter(
+      post.title,
+      post.content,
+      post.image,
+      request.url
     )
-    .transform(response);
+  )
+  .transform(response);
 }
 
 class HeadRewriter {
