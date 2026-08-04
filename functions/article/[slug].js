@@ -66,9 +66,10 @@ class HeadRewriter {
   }
 
   element(head) {
-    head.append(
+  head.append(
 `
 <meta name="test-worker" content="worker-ok">
+<meta name="test-time" content="${Date.now()}">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="${escapeHtml(this.title)}">
@@ -81,8 +82,8 @@ class HeadRewriter {
 <meta name="twitter:description" content="${escapeHtml(this.description)}">
 <meta name="twitter:image" content="${this.image}">
 `,
-{ html: true }
-);
+    { html: true }
+  );
   }
 }
 
