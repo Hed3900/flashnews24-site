@@ -34,9 +34,13 @@ export async function onRequest(context) {
 
   const response = await next();
 
-  if (!post) {
-    return response;
-  }
+console.log("Slug:", slug);
+console.log("Status:", response.status);
+console.log("Content-Type:", response.headers.get("content-type"));
+
+if (!response.headers.get("content-type")?.includes("text/html")) {
+  return response;
+}
 
   return new HTMLRewriter()
     .on(
@@ -61,7 +65,10 @@ class HeadRewriter {
 
   element(head) {
     head.append(
-      `
+  `<meta name="test-worker" content="worker-ok">`,
+  { html: true }
+);
+      
 <meta property="og:type" content="article">
 <meta property="og:title" content="${escapeHtml(this.title)}">
 <meta property="og:description" content="${escapeHtml(this.description)}">
