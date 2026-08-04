@@ -19,7 +19,7 @@ export async function onRequest(context) {
     return next();
   }
 
-  const slug = path.split("/article/")[1].replace(".html", "");
+  const slug = decodeURIComponent(path.split("/article/")[1]);
 
   const api =
   "https://firestore.googleapis.com/v1/projects/flashnews24-5bfd6/databases/(default)/documents/posts";
@@ -31,14 +31,19 @@ export async function onRequest(context) {
   for (const doc of json.documents || []) {
     const f = doc.fields;
 
-    if (f.slug?.stringValue === slug) {
-      post = {
-        title: f.title?.stringValue || "",
-        image: f.image?.stringValue || "",
-        content: f.content?.stringValue || "",
-      };
-      break;
-    }
+    const firestoreSlug = f.slug?.stringValue || "";
+
+if (
+  firestoreSlug === slug ||
+  firestoreSlug.replace(".html", "") === slug.replace(".html", "")
+) {
+  post = {
+    title: f.title?.stringValue || "",
+    image: f.image?.stringValue || "",
+    content: f.content?.stringValue || "",
+  };
+  break;
+}
   }
 
   if (!post) {
