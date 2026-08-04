@@ -33,7 +33,9 @@ export async function onRequest(context) {
   }
 
   const response = await next();
-
+if (!post) {
+  return response;
+}
 console.log("Slug:", slug);
 console.log("Status:", response.status);
 console.log("Content-Type:", response.headers.get("content-type"));
