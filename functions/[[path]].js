@@ -22,8 +22,7 @@ export async function onRequest(context) {
   const slug = path.split("/article/")[1].replace(".html", "");
 
   const api =
-    `https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/posts`;
-
+  "https://firestore.googleapis.com/v1/projects/flashnews24-5bfd6/databases/(default)/documents/posts";
   const res = await fetch(api);
   const json = await res.json();
 
