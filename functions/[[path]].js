@@ -3,14 +3,14 @@ export async function onRequest(context) {
 
   const ua = request.headers.get("user-agent") || "";
 
-  const isBot =
-    /facebookexternalhit|Facebot|WhatsApp|Twitterbot|TelegramBot|LinkedInBot|Slackbot/i.test(
-      ua
-    );
+  //const isBot =
+  //  /facebookexternalhit|Facebot|WhatsApp|Twitterbot|TelegramBot|LinkedInBot|Slackbot/i.test(
+   //   ua
+  //  );
 
-  if (!isBot) {
-    return next();
-  }
+ // if (!isBot) {
+ //   return next();
+ // }
 
   const url = new URL(request.url);
   const path = url.pathname;
