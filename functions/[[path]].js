@@ -70,6 +70,8 @@ class HeadRewriter {
 
   element(element) {
     element.append(`
+<meta name="test-worker" content="worker-ok">
+
 <meta property="og:type" content="article">
 <meta property="og:title" content="${this.title}">
 <meta property="og:description" content="${this.content}">
@@ -81,7 +83,7 @@ class HeadRewriter {
 <meta name="twitter:description" content="${this.content}">
 <meta name="twitter:image" content="${this.image}">
 `, {
-      html: true,
-    });
+  html: true,
+});
   }
 }
