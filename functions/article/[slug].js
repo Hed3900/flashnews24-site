@@ -67,8 +67,14 @@ if (!response.headers.get("content-type")?.includes("text/html")) {
     )
     .transform(response);
 }
-
 class HeadRewriter {
+  element(head) {
+    head.append(
+      `<meta name="worker-test" content="SUCCESS">`,
+      { html: true }
+    );
+  }
+}
   constructor(title, description, image, url) {
     this.title = title;
     this.description = description;
