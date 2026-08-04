@@ -31,8 +31,19 @@ export async function onRequest(context) {
       break;
     }
   }
+const response = await next();
 
-  const response = await next();
+return new Response(
+  JSON.stringify({
+    status: response.status,
+    contentType: response.headers.get("content-type")
+  }),
+  {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+);
 if (!post) {
   return response;
 }
