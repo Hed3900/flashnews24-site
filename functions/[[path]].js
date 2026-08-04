@@ -46,7 +46,7 @@ export async function onRequest(context) {
   }
 
   const response = await next();
-
+console.log("Worker executed:", request.url);
   return new HTMLRewriter()
     .on(
       "head",
