@@ -57,13 +57,6 @@ if (!response.headers.get("content-type")?.includes("text/html")) {
     .transform(response);
 }
 class HeadRewriter {
-  element(head) {
-    head.append(
-      `<meta name="worker-test" content="SUCCESS">`,
-      { html: true }
-    );
-  }
-}
   constructor(title, description, image, url) {
     this.title = title;
     this.description = description;
@@ -72,10 +65,9 @@ class HeadRewriter {
   }
 
   element(head) {
-  head.append(
-`
-<meta name="test-worker" content="worker-ok">
-<meta name="test-time" content="${Date.now()}">
+    head.append(
+      `
+<meta name="worker-test" content="SUCCESS">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="${escapeHtml(this.title)}">
@@ -88,15 +80,7 @@ class HeadRewriter {
 <meta name="twitter:description" content="${escapeHtml(this.description)}">
 <meta name="twitter:image" content="${this.image}">
 `,
-    { html: true }
-  );
+      { html: true }
+    );
   }
-}
-
-function escapeHtml(str = "") {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
