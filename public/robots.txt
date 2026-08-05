@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://news.flashnews24.site/sitemap.xml
+Sitemap: https://news.flashnews24.site/news-sitemap.xml
