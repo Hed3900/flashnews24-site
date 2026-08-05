@@ -109,27 +109,3 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
-.article-content h2{
-    position: relative;
-    display: block;
-    background: #fff;
-    color: #111 !important;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.4;
-    padding: 14px 18px 14px 24px;
-    margin: 30px 0 18px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.12);
-}
-
-.article-content h2::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:6px;
-    background:#e10600;
-    border-radius:8px 0 0 8px;
-}
