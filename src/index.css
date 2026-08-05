@@ -109,3 +109,23 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+.article-content h2,
+.article-content h3 {
+  position: relative;
+  background: #fff;
+  color: #111 !important;
+  padding: 12px 16px 12px 22px;
+  border-radius: 8px;
+}
+
+.article-content h2::before,
+.article-content h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: #e10600;
+  border-radius: 8px 0 0 8px;
+}
