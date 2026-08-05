@@ -47,6 +47,17 @@ export async function onRequest(context) {
   if (!post) {
     return response;
   }
+  return new HTMLRewriter()
+  .on(
+    "head",
+    new HeadRewriter(
+      post.title,
+      post.description,
+      post.image,
+      post.url
+    )
+  )
+  .transform(response);
 class HeadRewriter {
   constructor(title, description, image, url) {
     this.title = title;
