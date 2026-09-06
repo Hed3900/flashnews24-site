@@ -2,6 +2,7 @@ import "./CategoryBar.css";
 
 const categories = [
   "All",
+  "Breaking",
   "General",
   "World",
   "India",
